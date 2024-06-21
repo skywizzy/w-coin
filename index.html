@@ -243,18 +243,9 @@
         function timerCount(){
             let timer = 0;
             if("w_coin_time" in localStorage){
-                //let diff = 0;
-                // if(parseInt(Math.floor(Date.now() / 1000)) > parseInt(localStorage.getItem('w_coin_timestamp'))){
-                //     localStorage.setItem('w_coin_timeUpdate', localStorage.getItem('w_coin_time'));
-                //     diff = parseInt(Math.floor(Date.now() / 1000)) - parseInt(localStorage.getItem('w_coin_timestamp'));
-                //     timer = parseInt(localStorage.getItem('w_coin_time')) - diff;
-                //     localStorage.setItem('w_coin_timeNow', Math.floor(Date.now() / 1000));
-                //     localStorage.setItem('w_coin_timeDiff', diff);
-                // }else{
-                    timer = parseInt(localStorage.getItem('w_coin_time'));
-                // }
+                timer = parseInt(localStorage.getItem('w_coin_time'));
             }else{
-                timer = 100 // 86400; ---- for firstime run only!!
+                timer = 20 // 86400; ---- for firstime run only!!
             }
             var hrs = 0;
             var min = 0;
@@ -283,6 +274,7 @@
         function playNow(){
             if(parseInt(localStorage.getItem('w_coin')) >= 5){
                 localStorage.removeItem('w_coin');
+                localStorage.removeItem('w_coin_time');
                 localStorage.removeItem('w_coin_alphabet');
                 localStorage.removeItem('w_coin_alphabet1');
                 localStorage.removeItem('w_coin_alphabet2');
@@ -313,6 +305,7 @@
             }
             if(wordPicked.length < 6){
                 btn1.style.display = 'block';
+                scrShow.style.display = 'block';
                 btn2.style.display = 'none';
                 btn1.removeAttribute('disabled');
                 btn1.selectedIndex = 0;
@@ -328,28 +321,34 @@
                     hashedWordPicked1 = wordPicked.replace(hiddenAlphabet1, '*');
                     localStorage.setItem('w_coin_word', hashedWordPicked1);
                 }
-                scrShow.innerHTML = hashedWordPicked1;            
+                scrShow.innerHTML = hashedWordPicked1;
+                let tim = 0;            
                 btn1.addEventListener('change', () => {
                     let pick = btn1.options[btn1.selectedIndex].value;
                     scrShow.innerHTML = hashedWordPicked1.replace('*', pick);
                     if(pick == hiddenAlphabet1){
-                        btn1.setAttribute('disabled','disabled');
-                        if(localStorage.getItem('w_coin') != null){
-                            localStorage.setItem('w_coin', parseInt(localStorage.getItem('w_coin')) + 1);
-                        }else{
-                            localStorage.setItem('w_coin', 0);
-                        }
-                        if(parseInt(localStorage.getItem('w_coin')) != w_coin.length){
-                            setTimeout(()=>{
-                                if(parseInt(localStorage.getItem('w_coin')) > 4){
-                                    localStorage.setItem('w_coin_timestamp', Math.floor(Date.now() / 1000));
-                                    btn1.style.display = 'none';
-                                    scrShow.style.display = 'none';    
-                                }
-                                localStorage.removeItem('w_coin_alphabet');
-                                localStorage.removeItem('w_coin_word');
-                                return init();
-                            }, 1000);
+                        tim += 1;
+                        if(tim == 1){
+                            btn1.setAttribute('disabled','disabled');
+                            if("w_coin" in localStorage){
+                                localStorage.setItem('w_coin', parseInt(localStorage.getItem('w_coin')) + 1);
+                                console.log('1-continue');
+                            }else{
+                                localStorage.setItem('w_coin', 0);
+                                console.log('1-starting');
+                            }
+                            if(parseInt(localStorage.getItem('w_coin')) != w_coin.length){
+                                setTimeout(()=>{
+                                    if(parseInt(localStorage.getItem('w_coin')) > 4){
+                                        localStorage.setItem('w_coin_timestamp', Math.floor(Date.now() / 1000));
+                                        btn1.style.display = 'none';
+                                        scrShow.style.display = 'none';    
+                                    }
+                                    localStorage.removeItem('w_coin_alphabet');
+                                    localStorage.removeItem('w_coin_word');
+                                    return init();
+                                }, 1000);
+                            }
                         }
                     }
                 });
@@ -359,6 +358,7 @@
                 let hiddenAlphabet22 = '';
                 let hashedWordPicked22 = '';
                 btn1.style.display = 'block';
+                scrShow.style.display = 'block';
                 if("w_coin_word" in localStorage){
                     hiddenAlphabet11 = localStorage.getItem('w_coin_alphabet1');
                     hiddenAlphabet22 = localStorage.getItem('w_coin_alphabet2');
@@ -388,29 +388,36 @@
                 });
                 btn1.selectedIndex = 0;
                 btn2.selectedIndex = 0;
+                let timm1 = 0;
                 btn2.addEventListener('change', () => {
                     let pick2 = btn2.options[btn2.selectedIndex].value;
                     scrShow.innerHTML = correctAns.replace('*', pick2);
                     if(pick2 == hiddenAlphabet22){
-                        btn2.setAttribute('disabled','disabled');
-                        if(localStorage.getItem('w_coin') != null){
-                            localStorage.setItem('w_coin', parseInt(localStorage.getItem('w_coin')) + 1);
-                        }else{
-                            localStorage.setItem('w_coin', 0);
-                        }
-                        if(parseInt(localStorage.getItem('w_coin')) != w_coin.length){
-                            setTimeout(()=>{
-                                if(parseInt(localStorage.getItem('w_coin')) > 4){
-                                    localStorage.setItem('w_coin_timestamp', Math.floor(Date.now() / 1000));
-                                    btn1.style.display = 'none';
-                                    btn2.style.display = 'none';
-                                    scrShow.style.display = 'none';
-                                }
-                                localStorage.removeItem('w_coin_alphabet1');
-                                localStorage.removeItem('w_coin_alphabet2');
-                                localStorage.removeItem('w_coin_word');
-                                return init();
-                            }, 1000);
+                        timm1 += 1;
+                        if(timm1 == 1){
+                            btn2.setAttribute('disabled','disabled');
+                            if("w_coin" in localStorage){
+                                localStorage.setItem('w_coin', parseInt(localStorage.getItem('w_coin')) + 1);
+                                console.log('2-continue');
+                            }else{
+                                localStorage.setItem('w_coin', 0);
+                                console.log('2-starting');
+                            }
+                            if(parseInt(localStorage.getItem('w_coin')) != w_coin.length){
+                                setTimeout(()=>{
+                                    if(parseInt(localStorage.getItem('w_coin')) > 4){
+                                        localStorage.setItem('w_coin', 5);
+                                        localStorage.setItem('w_coin_timestamp', Math.floor(Date.now() / 1000));
+                                        btn1.style.display = 'none';
+                                        btn2.style.display = 'none';
+                                        scrShow.style.display = 'none';
+                                    }
+                                    localStorage.removeItem('w_coin_alphabet1');
+                                    localStorage.removeItem('w_coin_alphabet2');
+                                    localStorage.removeItem('w_coin_word');
+                                    return init();
+                                }, 1000);
+                            }
                         }
                     }
                 });
