@@ -36,6 +36,7 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
+            overflow-y: auto;
         }
         header{
             display: flex;
@@ -78,12 +79,12 @@
         }
         .screen{
             width: 100%;
-            height: 40%;
+            height: 50%;
             padding: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 10px double white;
+            border: 10px double rgba(255,255,255,0.6);
         }
         .scr{
             height: 80%;
@@ -92,16 +93,26 @@
             justify-content: center;
             align-items: center;
             letter-spacing: 15px;
-            font-size: 5em;
+            font-size: calc(3em + 4vw);
             color: gold;
             text-shadow: 5px 2px 1px grey;
         }
         .w_coin{
-            
+            transition: all 500ms ease-in-out;
+            /* transform: scale3d(0,0,0); */
+        }
+        .w_coin img{
+            width: 85px;
+        }
+        .txt{
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: rebeccapurple;
+            color: wheat;
         }
         .word{
             width: 100%;
-            height: 30%;
+            height: 35%;
             padding: 10px;
             display: flex;
             align-items: center;
@@ -138,18 +149,54 @@
             font-size: 1.3em;
             background-color: transparent;
             color: white;
-            border: 1px solid white;
+            border-radius: 7px;
+            transition: all 300ms ease-in-out;
         }
         select option{
             color:black;
         }
+        .indicator{
+            margin-top: 10px;
+            height: 50px;
+            width: 150px;
+            position: relative;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9em;;
+        }
+        .correct{
+            position: absolute;
+            background-color: green;
+            color: white;
+            padding: 0px 50px;
+            line-height: 2;
+            left: 0px;
+            right: 0px;
+            height: 0px;
+            overflow: hidden;
+            transition: height 300ms ease-in-out;
+        }
+        .wrong{
+            position: absolute;
+            background-color: red;
+            margin: 0px auto;
+            color: white;
+            padding: 0px 50px;
+            line-height: 2;
+            left: 0px;
+            right: 0px;
+            height: 0px;
+            overflow: hidden;
+            transition: height 300ms ease-in-out;
+        }
         footer{
-            background-color: slateblue;
+            border: 1px dashed wheat;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.8em;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 10px;
+            padding: 10px 30px;
         }
     </style>
 </head>
@@ -166,14 +213,15 @@
         <section>
             <article class="screen">
                 <div class="scr">
-                    <h4 class="animate__animated animate__bounce w_coin">W</h4>
-                    <h4 class="animate__animated animate__bounce w_coin">-</h4>
-                    <h4 class="animate__animated animate__bounce w_coin">C</h4>
-                    <h4 class="animate__animated animate__bounce w_coin">O</h4>
-                    <h4 class="animate__animated animate__bounce w_coin">I</h4>
-                    <h4 class="animate__animated animate__bounce w_coin">N</h4>
+                    <h4 class="w_coin"><img src="img/8i.png"></h4>
+                    <h4 class="w_coin"><img src="img/8i.png"></h4>
+                    <h4 class="w_coin"><img src="img/8i.png"></h4>
+                    <h4 class="w_coin"><img src="img/8i.png"></h4>
+                    <h4 class="w_coin"><img src="img/8i.png"></h4>
+                    <h4 class="w_coin"><img src="img/8i.png"></h4>
                 </div>
             </article>
+            <p class="txt">🎯 Find the Missing letter(s) below to Unlock <i class="fa fa-unlock"></i> ?</p>
             <article class="word">
                 <div class="wrd">
                     <h5 id="scrShow"></h5>
@@ -241,8 +289,11 @@
                     </select>
                 </div>
             </article>
+            <div class="indicator">
+                <p class="correct">Correct! ✅</p>
+                <p class="wrong">Wrong! ❌</p>
+            </div>
         </section>
-        <br>
         <footer>
             <p>Credits To W-Coin Team designed by Chibricase</p>
         </footer>
@@ -253,13 +304,16 @@
         const w_coin = document.querySelectorAll(".w_coin");
         const scrShow = document.querySelector('#scrShow');
         const timeScr = document.querySelector('#timeScr');
+        const correct = document.querySelector(".correct");
+        const wrong = document.querySelector(".wrong");
         const bothBooks = ['GENESIS','EXODUS','LEVITICUS','NUMBERS','DEUTERONOMY','JOSHUA','JUDGES','RUTH','SAMUEL','KINGS','CHRONICLES','EZRA','NEHEMIAH','ESTHER','JOB','PSALM','PROVERBS','ECCLESIASTES','ISAIAH','JEREMIAH','LAMENTATIONS','EZEKIEL','DANIEL','HOSEA','JOEL','AMOS','OBADIAH','JONAH','MICAH','NAHUM','HABAKKUK','ZEPHANIAH','HAGGAI','ZECHARIAH','MALACHI','MATTHEW','MARK','LUKE','JOHN','ACTS','ROMANS','CORINTHIANS','GALATIANS','EPHESIANS','PHILIPPIANS','COLOSSIANS','THESSALONIANS','TIMOTHY','TITUS','PHILEMON','HEBREWS','JAMES','PETER','JOHN','JUDE','REVELATION']
         init();
         function init(){
             if("w_coin" in localStorage){
                 let size = parseInt(localStorage.getItem('w_coin'));
+                let namba = ['W','-','C','O','I','N'];
                 for(var m = 0; m <= size; m++){
-                    w_coin[m].style.color = 'purple';
+                    w_coin[m].innerHTML = namba[m];
                 }
                 if(size >= w_coin.length - 1){
                     // document.write('Game Completed, Congrats you have won a Top Fan Badge, Come back Tomorrow.');
@@ -289,7 +343,7 @@
 
                 timer = parseInt(localStorage.getItem('w_coin_time'));
             }else{
-                timer = 500 // 86400; ---- for firstime run only!!
+                timer = 10 // 86400; ---- for firstime run only!!
             }
             var hrs = 0;
             var min = 0;
@@ -324,8 +378,14 @@
                 localStorage.removeItem('w_coin_word');
                 localStorage.removeItem('w_coin_timestamp');
                 for(var f = 0; f < w_coin.length; f++){
-                    w_coin[f].style.color = 'black';
+                    w_coin[f].style.transform = 'scale3d(0,0,0)';
                 }
+                setTimeout(()=>{
+                    for(var fi = 0; fi < w_coin.length; fi++){
+                        w_coin[f].innerHTML = '<img src="img/8i.png">';
+                        w_coin[f].style.transform = 'scale3d(1,1,1)';
+                    }
+                }, 1000);
             }
             let wordPicked = '';
             if("w_coin_word" in localStorage){
@@ -376,28 +436,31 @@
                         btn1.setAttribute('disabled','disabled');
                         tim += 1;
                         if(tim == 1){
+                            correct.style.height = '30px';
+                            setTimeout(()=>{correct.style.height = '0px';},1000);
                             if("w_coin" in localStorage){
                                 localStorage.setItem('w_coin', parseInt(localStorage.getItem('w_coin')) + 1);
                             }else{
                                 localStorage.setItem('w_coin', 0);
                             }
                             if(parseInt(localStorage.getItem('w_coin')) != w_coin.length){
-                                setTimeout(()=>{
-                                    if(parseInt(localStorage.getItem('w_coin')) > 4){
-                                        localStorage.setItem('w_coin_timestamp', Math.floor(Date.now() / 1000));
+                                if(parseInt(localStorage.getItem('w_coin')) > 4){
+                                    localStorage.setItem('w_coin_timestamp', Math.floor(Date.now() / 1000));
 
-                                        const d = new Date();
-                                        localStorage.setItem('w_coin_timestamp_0', Math.round(d.getTime() / 1000));
+                                    const d = new Date();
+                                    localStorage.setItem('w_coin_timestamp_0', Math.round(d.getTime() / 1000));
 
-                                        btn1.style.display = 'none';
-                                        scrShow.style.display = 'none';    
-                                    }
-                                    localStorage.removeItem('w_coin_alphabet');
-                                    localStorage.removeItem('w_coin_word');
-                                    return init();
-                                }, 1000);
+                                    btn1.style.display = 'none';
+                                    scrShow.style.display = 'none';    
+                                }
+                                localStorage.removeItem('w_coin_alphabet');
+                                localStorage.removeItem('w_coin_word');
+                                return init();
                             }
                         }
+                    }else{
+                        wrong.style.height = '30px';
+                        setTimeout(()=>{wrong.style.height = '0px';},1000);
                     }
                 });
             }else{
@@ -431,9 +494,14 @@
                     let pick = btn1.options[btn1.selectedIndex].value;
                     scrShow.innerHTML = hashedWordPicked22.replace('*', pick);
                     if(pick == hiddenAlphabet11){
+                        correct.style.height = '30px';
+                        setTimeout(()=>{correct.style.height = '0px';},1000);
                         btn1.setAttribute('disabled','disabled');
                         btn2.removeAttribute('disabled');
                         correctAns = scrShow.innerHTML;
+                    }else{
+                        wrong.style.height = '30px';
+                        setTimeout(()=>{wrong.style.height = '0px';},1000);
                     }
                 });
                 btn1.selectedIndex = 0;
@@ -446,31 +514,34 @@
                         btn2.setAttribute('disabled','disabled');
                         timm1 += 1;
                         if(timm1 == 1){
+                            correct.style.height = '30px';
+                            setTimeout(()=>{correct.style.height = '0px';},1000);
                             if("w_coin" in localStorage){
                                 localStorage.setItem('w_coin', parseInt(localStorage.getItem('w_coin')) + 1);
                             }else{
                                 localStorage.setItem('w_coin', 0);
                             }
                             if(parseInt(localStorage.getItem('w_coin')) != w_coin.length){
-                                setTimeout(()=>{
-                                    if(parseInt(localStorage.getItem('w_coin')) > 4){
-                                        localStorage.setItem('w_coin', 5);
-                                        // localStorage.setItem('w_coin_timestamp', Math.floor(Date.now() / 1000));
+                                if(parseInt(localStorage.getItem('w_coin')) > 4){
+                                    localStorage.setItem('w_coin', 5);
+                                    // localStorage.setItem('w_coin_timestamp', Math.floor(Date.now() / 1000));
 
-                                        // const d = new Date();
-                                        // localStorage.setItem('w_coin_timestamp_0', Math.round(d.getTime() / 1000));
+                                    // const d = new Date();
+                                    // localStorage.setItem('w_coin_timestamp_0', Math.round(d.getTime() / 1000));
 
-                                        btn1.style.display = 'none';
-                                        btn2.style.display = 'none';
-                                        scrShow.style.display = 'none';
-                                    }
-                                    localStorage.removeItem('w_coin_alphabet1');
-                                    localStorage.removeItem('w_coin_alphabet2');
-                                    localStorage.removeItem('w_coin_word');
-                                    return init();
-                                }, 1000);
+                                    btn1.style.display = 'none';
+                                    btn2.style.display = 'none';
+                                    scrShow.style.display = 'none';
+                                }
+                                localStorage.removeItem('w_coin_alphabet1');
+                                localStorage.removeItem('w_coin_alphabet2');
+                                localStorage.removeItem('w_coin_word');
+                                return init();
                             }
                         }
+                    }else{
+                        wrong.style.height = '30px';
+                        setTimeout(()=>{wrong.style.height = '0px';},1000);
                     }
                 });
             }
