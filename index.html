@@ -59,7 +59,6 @@
         }
         .time{
             padding: 10px;
-            font-size: 0.8em;
             margin-top: 10px;
             color: white;
             font-size: 1.1em;
@@ -168,7 +167,7 @@
             background-color: green;
             color: white;
             padding: 0px 50px;
-            line-height: 2;
+            line-height: 1.8;
             left: 0px;
             right: 0px;
             height: 0px;
@@ -181,7 +180,7 @@
             margin: 0px auto;
             color: white;
             padding: 0px 50px;
-            line-height: 2;
+            line-height: 1.8;
             left: 0px;
             right: 0px;
             height: 0px;
@@ -197,6 +196,60 @@
             align-items: center;
             justify-content: center;
             padding: 10px 30px;
+        }
+        /* Media queries for responsiveness */
+        @media screen and (max-width: 650px) {
+            .scr{
+                font-size: calc(1em + 4vw);
+            }
+            .w_coin img{
+                width: 55px;
+            }
+            .txt{
+                font-size: 0.7em;
+            }
+        }
+        @media screen and (max-width: 450px) {
+            header h3{
+                font-size: 1.1em;
+            }
+            header > p{
+                font-size: 0.8em;
+            }
+            .time{
+                font-size: 0.8em;
+            }
+            .time b{
+                font-size: 1.5em;
+            }
+            .w_coin img{
+                width: 35px;
+            }
+            .txt{
+                font-size: 0.5em;
+            }
+            .wrd{
+                font-size: 1.2em;
+            }
+            .btn1, .btn2{
+                padding: 5px;
+                font-size: 1em;
+            }
+            .indicator{
+                line-height: 2;
+                font-size: 0.7em;
+                width: 120px;
+            }
+            .correct{
+                padding: 0px 37px;
+            }
+            .wrong{
+                padding: 0px 37px;
+            }
+            footer{
+                font-size: 0.6em;
+                padding: 10px;
+            }
         }
     </style>
 </head>
@@ -290,8 +343,8 @@
                 </div>
             </article>
             <div class="indicator">
-                <p class="correct">Correct! ✅</p>
-                <p class="wrong">Wrong! ❌</p>
+                <p class="correct">Correct!</p>
+                <p class="wrong">Wrong!</p>
             </div>
         </section>
         <footer>
@@ -312,9 +365,11 @@
             if("w_coin" in localStorage){
                 let size = parseInt(localStorage.getItem('w_coin'));
                 let namba = ['W','-','C','O','I','N'];
-                for(var m = 0; m <= size; m++){
-                    w_coin[m].innerHTML = namba[m];
-                }
+                setTimeout(()=>{
+                    for(var m = 0; m <= size; m++){
+                        w_coin[m].innerHTML = namba[m];
+                    }
+                }, 1000);
                 if(size >= w_coin.length - 1){
                     // document.write('Game Completed, Congrats you have won a Top Fan Badge, Come back Tomorrow.');
                     if(parseInt(localStorage.getItem('w_coin_time')) < 0){
@@ -382,8 +437,8 @@
                 }
                 setTimeout(()=>{
                     for(var fi = 0; fi < w_coin.length; fi++){
-                        w_coin[f].innerHTML = '<img src="img/8i.png">';
-                        w_coin[f].style.transform = 'scale3d(1,1,1)';
+                        w_coin[fi].innerHTML = '<img src="img/8i.png">';
+                        w_coin[fi].style.transform = 'scale3d(1,1,1)';
                     }
                 }, 1000);
             }
@@ -429,6 +484,7 @@
                 }
                 scrShow.innerHTML = hashedWordPicked1;
                 let tim = 0;            
+                let indi = false;            
                 btn1.addEventListener('change', () => {
                     let pick = btn1.options[btn1.selectedIndex].value;
                     scrShow.innerHTML = hashedWordPicked1.replace('*', pick);
@@ -436,8 +492,7 @@
                         btn1.setAttribute('disabled','disabled');
                         tim += 1;
                         if(tim == 1){
-                            correct.style.height = '30px';
-                            setTimeout(()=>{correct.style.height = '0px';},1000);
+                            indi = true;
                             if("w_coin" in localStorage){
                                 localStorage.setItem('w_coin', parseInt(localStorage.getItem('w_coin')) + 1);
                             }else{
@@ -458,8 +513,13 @@
                                 return init();
                             }
                         }
+                    }
+                    if(indi){
+                        correct.style.height = '25px';
+                        setTimeout(()=>{correct.style.height = '0px';},1000);
                     }else{
-                        wrong.style.height = '30px';
+                        indi = false;
+                        wrong.style.height = '25px';
                         setTimeout(()=>{wrong.style.height = '0px';},1000);
                     }
                 });
@@ -490,23 +550,29 @@
                 btn2.setAttribute("disabled", "disabled");
                 btn2.style.display = 'block';
                 scrShow.innerHTML = hashedWordPicked22;   
+                let indi_1 = false;
                 btn1.addEventListener('change', () => {
                     let pick = btn1.options[btn1.selectedIndex].value;
                     scrShow.innerHTML = hashedWordPicked22.replace('*', pick);
                     if(pick == hiddenAlphabet11){
-                        correct.style.height = '30px';
-                        setTimeout(()=>{correct.style.height = '0px';},1000);
+                        indi_1 = true;
                         btn1.setAttribute('disabled','disabled');
                         btn2.removeAttribute('disabled');
                         correctAns = scrShow.innerHTML;
+                    }
+                    if(indi_1){
+                        correct.style.height = '25px';
+                        setTimeout(()=>{correct.style.height = '0px';},1000);
                     }else{
-                        wrong.style.height = '30px';
+                        indi_1 = false;
+                        wrong.style.height = '25px';
                         setTimeout(()=>{wrong.style.height = '0px';},1000);
                     }
                 });
                 btn1.selectedIndex = 0;
                 btn2.selectedIndex = 0;
                 let timm1 = 0;
+                let indi_2 = false;
                 btn2.addEventListener('change', () => {
                     let pick2 = btn2.options[btn2.selectedIndex].value;
                     scrShow.innerHTML = correctAns.replace('*', pick2);
@@ -514,8 +580,7 @@
                         btn2.setAttribute('disabled','disabled');
                         timm1 += 1;
                         if(timm1 == 1){
-                            correct.style.height = '30px';
-                            setTimeout(()=>{correct.style.height = '0px';},1000);
+                            indi_2 = true;
                             if("w_coin" in localStorage){
                                 localStorage.setItem('w_coin', parseInt(localStorage.getItem('w_coin')) + 1);
                             }else{
@@ -539,8 +604,13 @@
                                 return init();
                             }
                         }
+                    }
+                    if(indi_2){
+                        correct.style.height = '25px';
+                        setTimeout(()=>{correct.style.height = '0px';},1000);
                     }else{
-                        wrong.style.height = '30px';
+                        indi_2 = false;
+                        wrong.style.height = '25px';
                         setTimeout(()=>{wrong.style.height = '0px';},1000);
                     }
                 });
