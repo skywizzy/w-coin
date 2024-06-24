@@ -53,6 +53,20 @@
             align-items: center;
             padding: 20px;
         }
+	.title{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .title img{
+            height: fit-content;
+            width: 50px;
+        }
+        .title h1{
+            height: fit-content;
+            color: wheat;
+        }
         header h3{
             color: white;
             font-size: 1.6em;
@@ -265,8 +279,9 @@
     <video id="bg_vid" autoplay loop muted poster="img/bg.png"><source src="vid/1.mp4"></video>
     <main>
         <header>
-            <h3>W-Coin Daily Combo Test Project</h3>
-            <p>(Create & Win Contest)</p>
+            <div class="title"><img src="img/logo.png" alt="w-coin logo">&nbsp;<h1>W-COIN</h1></div>
+            <h3>Daily 'GuessTheChar' Combo</h3>
+            <p>(Create & Win Contest Project)</p>
             <div class="time">
                 <p id="timeScr"><b>00</b>hrs : <b>00</b>mins : <b>00</b>secs</p>
             </div>
