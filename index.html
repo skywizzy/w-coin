@@ -2,14 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="W-Coin Daily Combo Test project designed for the Create & Win Contest, This is a test project for W-Coin users to earn Top Fan badges as a reward of their loyalty to the project.">
+    <meta name="description" content="W-Coin Daily 'GuessTheChar' Combo designed in participation of the Create & Win Contest, This is a test project for W-Coin users to earn Top Fan bagdges as a reward of their loyalty to the project.">
     <meta name="keywords" content="W-Coin, Daily, Combo, Claim, Tap, Crypto, Bot, Coin, Earn, Task, Reward, Referral, Invite, Cash, Launch, Ton, Blockhain, Fan, Token, Giveaway, Contest, Gift, Currency, Cryptocurrency">
     <meta name="author" content="Anyadike Chibuike (~Skywizzy~) @Chibricase">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="W-Coin Daily Combo Test Project (Create & Win)" />
-	<meta property="og:description" content="This is a test project for W-Coin users to earn Top Fan badges curtesy of the Create & Win context" />
-	<meta property="og:image" content="favicon-32x32.png" />
-    <title>W-Coin Daily Combo Test Project (Create & Win Contest)</title>
+    <title>W-Coin Daily 'GuessTheChar' Combo (Create & Win Contest Project)</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" sizes="any">
     <link rel="shortcut icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
     <link rel="shortcut icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
@@ -27,6 +24,170 @@
             text-decoration: none;
             list-style: none;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .intro{
+            position: fixed;
+            height: 100vh;
+            width: 100%;
+            background-color: black;
+            z-index: 2;
+            transition: all 500ms ease-in-out;
+        }
+        .intro .intro_text{
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            color: rgba(255,255,255,0.6);
+            padding-bottom: 50px;
+        }
+        .intro .intro_text img{
+            width: 60px;
+        }
+        .intro .intro_text p{
+            letter-spacing: 2px;
+            font-style: italic;
+            margin: 10px 0px 10px 0px;
+        }
+        .intro .intro_text span{
+            font-size: 0.7em;
+            color: goldenrod;
+        }
+        .intro #intro_vid{
+            position: absolute;
+            top: 0px;
+            z-index: -1;
+            height: 100vh;
+            width: 100%;
+            object-fit: cover;
+        }
+        .signup{
+            position: fixed;
+            height: 100vh;
+            width: 100%;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 2;
+            transition: all 500ms ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: scale3d(0,0,0);
+        }
+        .signup .formBox{
+            border-top: 10px solid goldenrod;
+            border-radius: 10px;
+            padding: 0px 10px;
+            width: 300px;
+            height: 10px;
+            overflow: hidden;
+            transition: height 500ms ease-in-out;
+        }
+        .signup .formBox form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+            background-color: white;
+            padding: 20px;
+        }
+        .signup .formBox form > img{
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+        .signup .formBox form label{
+            font-size: 0.8em;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+        .signup .formBox form input{
+            margin-bottom: 10px;
+            border: none;
+            border-bottom: 1px solid goldenrod;
+            background-color: rgba(0, 0, 0, 0.1);
+            height: 35px;
+            font-size: 0.9em;
+        }
+        .signup .formBox form input:focus{
+            outline: none;
+        }
+        .signup .formBox form button{
+            padding: 10px 15px;
+            background-color: goldenrod;
+            border: none;
+            border-radius: 7px;
+            color: white;
+            font-size: 0.8em;
+            cursor: pointer;
+        }
+        .signup .formBox form button:hover, #start:hover{
+            box-shadow: 2px 2px 5px grey;
+            opacity: 0.9;
+        }
+        .signup .formBox form .avatars{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 240px;
+            margin-bottom: 20px;
+        }
+        .signup .formBox form .avatars div{
+            /* border: 1px solid rgba(0, 0, 0, 0.1); */
+            height: 55px;
+            margin-bottom: 10px;
+        }
+        .signup .formBox form .avatars img{
+            width: 50px;
+            cursor: pointer;
+        }
+        .signup .formBox form .avatars img:hover{
+            opacity: 0.8;
+        }
+        .signup .formBox form .avatars input{
+            display: none;
+        }
+        .tutorial{
+            position: fixed;
+            height: 100vh;
+            width: 100%;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 2;
+            transition: all 500ms ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: scale3d(0,0,0);
+        }
+        .tutorial .tutorialBox{
+            background: url('img/how_to1.PNG') no-repeat;
+            background-position: center;
+            padding: 0px 10px;
+            width: 285px;
+            height: 400px;
+            overflow: hidden;
+            transition: height 500ms ease-in-out;
+            padding: 60px 30px;
+        }
+        .tutorial .tutorialBox .tutorialSheet{
+            width: 100%;
+            height: 100%;
+            /* border: 1px solid rebeccapurple; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .tutorial .tutorialBox h4{
+            text-align: center;
+            margin-bottom: 5px;
+            color: rgba(0, 0, 0, 0.8);
+        }
+        .tutorial .tutorialBox img{
+            width: 150px;
+            margin: 0px auto;
         }
         #bg_vid{
             position: absolute;
@@ -52,22 +213,44 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
+            width: 100%;
         }
-	.title{
+        .header_top{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .left{
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 10px;
         }
-        .title img{
+        .left img{
             height: fit-content;
             width: 50px;
         }
-        .title h1{
+        .left h1{
             height: fit-content;
             color: wheat;
         }
-        header h3{
+        .right{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .right img{
+            height: fit-content;
+            width: 30px;
+        }
+        .right h4{
+            height: fit-content;
+            color: wheat;
+            color: whitesmoke;
+        }
+        header > h3{
             color: white;
             font-size: 1.6em;
             text-align: center;
@@ -232,8 +415,8 @@
             }
         }
         @media screen and (max-width: 450px) {
-		header h3{
-		font-size: 1.1em;
+            header h3{
+                font-size: 1.1em;
             }
             header > p{
                 font-size: 0.8em;
@@ -276,10 +459,83 @@
     </style>
 </head>
 <body>
+    <div class="intro">
+        <div class="intro_text">
+            <img src="img/pleasewait.gif">
+            <p>Loading</p>
+            <span>(Credits To W-Coin Project Team, #ToTheMoon)</span>
+        </div>
+        <video id="intro_vid" autoplay loop muted poster="img/bg.png"><source src="vid/6.mp4"></video>    
+    </div>
+    <div class="signup">
+        <div class="formBox">
+            <form onsubmit="return false;">
+                <img id="main_avatar" src="img/account.png" alt="new user account">
+                <p style="margin: 5px 0px 15px 0px;">Pick an avatar below:</p>
+                <div class="avatars">
+                    <div>
+                        <label for="ava1"><img src="img/ava1.png"></label>
+                        <input type="radio" class="ava" value="ava1" name="avatar" id="ava1">
+                    </div>
+                    <div>
+                        <label for="ava2"><img src="img/ava2.png"></label>
+                        <input type="radio" class="ava" value="ava2" name="avatar" id="ava2">
+                    </div>
+                    <div>
+                        <label for="ava3"><img src="img/ava3.png"></label>
+                        <input type="radio" class="ava" value="ava3" name="avatar" id="ava3">
+                    </div>
+                    <div>
+                        <label for="ava4"><img src="img/ava4.png"></label>
+                        <input type="radio" class="ava" value="ava4" name="avatar" id="ava4">
+                    </div>
+                    <div>
+                        <label for="ava5"><img src="img/ava5.png"></label>
+                        <input type="radio" class="ava" value="ava5" name="avatar" id="ava5">
+                    </div>
+                    <div>
+                        <label for="ava6"><img src="img/ava6.png"></label>
+                        <input type="radio" class="ava" value="ava6" name="avatar" id="ava6">
+                    </div>
+                    <div>
+                        <label for="ava7"><img src="img/ava7.png"></label>
+                        <input type="radio" class="ava" value="ava7" name="avatar" id="ava7">
+                    </div>
+                    <div>
+                        <label for="ava8"><img src="img/ava8.png"></label>
+                        <input type="radio" class="ava" value="ava8" name="avatar" id="ava8">
+                    </div>
+                </div>
+                <label for="username">Create A Username:</label>
+                <input autofocus maxlength="15" type="text" id="username"><br>
+                <button id="how">How To Play <i class="fa fas fa-arrow-alt-circle-right"></i></button>
+            </form>
+        </div>
+    </div>
+    <div class="tutorial">
+        <div class="tutorialBox">
+            <div class="tutorialSheet">
+                <h4>How To Play</h4>
+                <img style="margin-bottom: 10px;" src="img/underline.png">
+                <h5>[ 1 ]</h5>
+                <p style="text-align: center; font-size: 0.8em; margin-bottom: 10px;">
+                    You will be given random words with one or two hidden letters, your task is to find and replace the correct hidden letters to complete the words and unlock the asset to earn a fan bagdge
+                </p>
+                <h5>[ 3 ]</h5>
+                <p style="text-align: center; font-size: 0.8em;">
+                    Accumulate 100 fan badges to earn "The Top Fan Badge",<span style="display: block;">Goodluck mate!.</span>
+                </p>
+                <button id="start" style="padding: 10px 15px; cursor: pointer; color: white; background-color: royalblue; border: none; margin-top: 20px; border-radius: 5px;">Start Playing</button>
+            </div>
+        </div>
+    </div>
     <video id="bg_vid" autoplay loop muted poster="img/bg.png"><source src="vid/1.mp4"></video>
     <main>
         <header>
-            <div class="title"><img src="img/logo.png" alt="w-coin logo">&nbsp;<h1>W-Coin</h1></div>
+            <article class="header_top">
+                <div class="left"><img src="img/logo.png" alt="w-coin logo">&nbsp;<h1>W-Coin Game</h1></div>
+                <div class="right"><img id="user_avatar" src="img/accounti.png" alt="user avatar">&nbsp;<h4 id="user_name">User</h4></div>
+            </article><br>
             <h3>Daily 'GuessTheChar' Combo</h3>
             <p>(Create & Win Contest Project)</p>
             <div class="time">
@@ -377,14 +633,68 @@
     <script>
         const btn1 = document.querySelector(".btn1");
         const btn2 = document.querySelector(".btn2");
-        const w_coin = document.querySelectorAll(".w_coin");
+        const w_coin = document.querySelectorAll(".w_coin"); 
+        const ava = document.querySelectorAll(".ava"); 
+        const user_avatar = document.querySelector('#user_avatar');
+        const user_name = document.querySelector('#user_name');
         const scrShow = document.querySelector('#scrShow');
         const timeScr = document.querySelector('#timeScr');
+        const start = document.querySelector('#start');
+        const how = document.querySelector('#how');
+        const username = document.querySelector('#username');
+        const main_avatar = document.querySelector('#main_avatar');
         const correct = document.querySelector(".correct");
         const wrong = document.querySelector(".wrong");
+        const intro = document.querySelector(".intro");
+        const signup = document.querySelector(".signup");
+        const formBox = document.querySelector(".formBox");
+        const tutorial = document.querySelector(".tutorial");
         const bothBooks = ['GENESIS','EXODUS','LEVITICUS','NUMBERS','DEUTERONOMY','JOSHUA','JUDGES','RUTH','SAMUEL','KINGS','CHRONICLES','EZRA','NEHEMIAH','ESTHER','JOB','PSALM','PROVERBS','ECCLESIASTES','ISAIAH','JEREMIAH','LAMENTATIONS','EZEKIEL','DANIEL','HOSEA','JOEL','AMOS','OBADIAH','JONAH','MICAH','NAHUM','HABAKKUK','ZEPHANIAH','HAGGAI','ZECHARIAH','MALACHI','MATTHEW','MARK','LUKE','JOHN','ACTS','ROMANS','CORINTHIANS','GALATIANS','EPHESIANS','PHILIPPIANS','COLOSSIANS','THESSALONIANS','TIMOTHY','TITUS','PHILEMON','HEBREWS','JAMES','PETER','JOHN','JUDE','REVELATION']
+        setTimeout(()=>{
+            intro.style.cssText = 'opacity:0;';
+            setTimeout(()=>{
+                intro.style.cssText = 'display:none;';
+                if(localStorage.getItem('w_coin_username') == '' && localStorage.getItem('w_coin_avatar') == ''){
+                    signup.style.cssText = 'transform:scale3d(1,1,1);';
+                    setTimeout(()=>{
+                        formBox.style.cssText = 'height:450px;';
+                    },500);
+                }
+            },500);
+        },3000);
+        ava.forEach(element => {
+            element.addEventListener('click', ()=>{
+                main_avatar.src = 'img/' + element.value + '.png';
+                localStorage.setItem('w_coin_avatar', element.value);
+            });
+        });
+        how.addEventListener('click', ()=>{
+            if(username.value != '' && localStorage.getItem('w_coin_avatar') != ''){
+                formBox.style.cssText = 'height:10px;';
+                localStorage.setItem('w_coin_username', username.value);
+                setTimeout(()=>{
+                    signup.style.cssText = 'transform:scale3d(0,0,0);';
+                    setTimeout(()=>{
+                        tutorial.style.cssText = 'transform:scale3d(1,1,1);';
+                    },500);
+                },500);
+            }else{
+                alert('Pick an Avatar then enter a username to continue');
+            }
+        });
+        start.addEventListener('click', ()=>{
+            setTimeout(()=>{
+                user_avatar.src = 'img/' + localStorage.getItem('w_coin_avatar') + '.png';
+                user_name.innerHTML = localStorage.getItem('w_coin_username');
+                tutorial.style.cssText = 'transform:scale3d(0,0,0);';
+            },500);
+        });
         init();
         function init(){
+            if("w_coin_username" in localStorage){
+                user_avatar.src = 'img/' + localStorage.getItem('w_coin_avatar') + '.png';
+                user_name.innerHTML = localStorage.getItem('w_coin_username');
+            }
             if("w_coin" in localStorage){
                 let size = parseInt(localStorage.getItem('w_coin'));
                 let namba = ['W','-','C','O','I','N'];
