@@ -41,7 +41,7 @@
             justify-content: flex-end;
             align-items: center;
             color: rgba(255,255,255,0.6);
-            padding-bottom: 20px;
+            padding-bottom: 40px;
         }
         .intro .intro_text img{
             width: 60px;
@@ -74,6 +74,7 @@
             justify-content: center;
             align-items: center;
             transform: scale3d(0,0,0);
+            padding-bottom: 10px;
         }
         .signup .formBox{
             border-top: 10px solid goldenrod;
@@ -105,12 +106,13 @@
             font-weight: 400;
         }
         .signup .formBox form input{
-            margin-bottom: 10px;
+            /* margin-bottom: 5px; */
             border: none;
             border-bottom: 1px solid goldenrod;
             background-color: rgba(0, 0, 0, 0.1);
             height: 35px;
             font-size: 0.9em;
+            padding: 10px;
         }
         .signup .formBox form input:focus{
             outline: none;
@@ -163,7 +165,7 @@
             transform: scale3d(0,0,0);
         }
         .tutorial .tutorialBox{
-            background: url('img/how_to1.PNG') no-repeat;
+            background: url('img/how_to1.png') no-repeat;
             background-position: center;
             padding: 0px 10px;
             width: 285px;
@@ -468,9 +470,23 @@
             justify-content: top;
         }
         .advert .wait{
-            padding: 10px 20px;
+            padding: 10px 15px;
+            font-size: 0.8em;
             background-color: indianred;
             color: white;
+        }
+        .advert a:hover{
+            color: white;
+            background-color: lightseagreen;
+        }
+        .advert a{
+            transition: all 300ms ease-in-out;
+            border: 1px solid lightseagreen;
+            border-radius: 7px;
+            color: lightseagreen;
+            padding: 10px;
+            font-size: 0.8em;
+            margin-bottom: 10px;
         }
         .advert img{
             width: fit-content;
@@ -503,7 +519,8 @@
             width: 85px;
         }
         .txt{
-            padding: 10px 20px;
+            padding: 10px 15px;
+            font-size: 0.8em;
             margin-top: 20px;
             background-color: rebeccapurple;
             color: wheat;
@@ -684,9 +701,9 @@
         <div class="intro_text">
             <img src="img/pleasewait.gif">
             <p>Loading</p>
-            <span>(Credits To W-Coin Project Team, #ToTheMoon)</span>
+            <span>(Credits To W-Coin Project Team, #WCoin #WCoinContest)</span>
         </div>
-        <video id="intro_vid" autoplay loop muted poster="img/bg.png"><source src="vid/2.mp4"></video>    
+        <video id="intro_vid" autoplay loop muted poster="img/bg2.png"><source src="vid/2.mp4"></video>    
     </div>
     <div class="signup">
         <div class="formBox">
@@ -728,7 +745,7 @@
                     </div>
                 </div>
                 <label for="username">Create A Username:</label>
-                <input autofocus maxlength="15" type="text" id="username"><br>
+                <input autofocus maxlength="15" placeholder="Enter Username" type="text" id="username"><br>
                 <button id="how">How To Play <i class="fa fas fa-arrow-alt-circle-right"></i></button>
             </form>
         </div>
@@ -777,7 +794,7 @@
             <div class="walletBox">
                 <img src="img/wallet.png">
                 <span class="badge">0B</span>
-                <p>Lv<span class="level">1</span></p>
+                <p>Lv<label class="level">1</label></p>
             </div>
         </header>
         <div class="profile">
@@ -802,6 +819,7 @@
         </div>
         <div style="display:none;" class="advert">
             <p class="wait">⌛ Please wait for the timer to elapse <i class="fa fa-spinner fa-spin"></i></p><br>
+            <a href="https://t.me/wcoin_tapbot?start=MTI3MDU1ODYxMg==" target="_blank">Click here to Join W-Coin Crypto Project</a>
             <img src="img/1aa.png">
         </div>
         <section class="section">
@@ -921,7 +939,8 @@
         const section = document.querySelector(".section");
         const right = document.querySelector(".right");
         const profile = document.querySelector(".profile");
-        const bothBooks = ['GENESIS','EXODUS','LEVITICUS','NUMBERS','DEUTERONOMY','JOSHUA','JUDGES','RUTH','SAMUEL','KINGS','CHRONICLES','EZRA','NEHEMIAH','ESTHER','JOB','PSALM','PROVERBS','ECCLESIASTES','ISAIAH','JEREMIAH','LAMENTATIONS','EZEKIEL','DANIEL','HOSEA','JOEL','AMOS','OBADIAH','JONAH','MICAH','NAHUM','HABAKKUK','ZEPHANIAH','HAGGAI','ZECHARIAH','MALACHI','MATTHEW','MARK','LUKE','JOHN','ACTS','ROMANS','CORINTHIANS','GALATIANS','EPHESIANS','PHILIPPIANS','COLOSSIANS','THESSALONIANS','TIMOTHY','TITUS','PHILEMON','HEBREWS','JAMES','PETER','JOHN','JUDE','REVELATION']
+        // const bothBooks = ['GENESIS','EXODUS','LEVITICUS','NUMBERS','DEUTERONOMY','JOSHUA','JUDGES','RUTH','SAMUEL','KINGS','CHRONICLES','EZRA','NEHEMIAH','ESTHER','JOB','PSALM','PROVERBS','ECCLESIASTES','ISAIAH','JEREMIAH','LAMENTATIONS','EZEKIEL','DANIEL','HOSEA','JOEL','AMOS','OBADIAH','JONAH','MICAH','NAHUM','HABAKKUK','ZEPHANIAH','HAGGAI','ZECHARIAH','MALACHI','MATTHEW','MARK','LUKE','JOHN','ACTS','ROMANS','CORINTHIANS','GALATIANS','EPHESIANS','PHILIPPIANS','COLOSSIANS','THESSALONIANS','TIMOTHY','TITUS','PHILEMON','HEBREWS','JAMES','PETER','JOHN','JUDE','REVELATION']
+        const bothBooks = ['ACTOR','AIRDROP','ALTCOIN','ATH','ALGORITHM','ADDRESS','APPLICATION','ATTACK','BEARISH','BULLISH','BULL','BURN','BAG','BITCOIN','BLOCK','BLOCKCHAIN','CERTIFICATE','COIN','COINBASE','CROWDSALE','CRYPTOART','COMPANY','CONFIRMATION','CONSENSUS','CONTRACT','CONSORTIUM','CRYPTOCURRENCY','CRYPTOGRAPHY','CURRENCY','COMPLETE','CRIMES','CRYPTOECONOMICS','DERIVATIVES','DAPP','DECENTRALIZATION','DISTRIBUTION','DIGITAL','DUMPING','DUMP','DYOR','DECENTRALIZED','DAO','DEX','DEFI','ETHER','ENTRY','EXIT','ETHEREUM','ETHERSCAN','EXCHANGE','FUTURE','FEAR','FEE','FUNGIBLE','FIAT','FINANCE','FOMO','FUD','FORK','GAS','GREED','GIVEAWAY','HASH','HALVING','HOLDER','HARD','HODL','HARDWARE','HASHGRAPH','HASHRATE','HEXADECIMAL','IMMUTABILITY','ICO','IDO','INVEST','INVESTMENT','ITO','IEO','KYC','KEY','LIQUIDITY','LAMBO','LOCKED','LIMIT','VIRTUAL','LOSS','MAINNET','METAMASK','MINER','MARKET','MINING','MONEY','MERKLE','MULTISIGNATURE','MEMECOIN','MOON','NETWORK','NAKAMOTO','NODE','ORDER','PRIVATE','POOL','PRICE','PUMPING','PUMP','PROOF','PUBLIC','PROFIT','PROTOCOL','PROTECTION','PHRASE','RIPPLE','REWARD','RUGPULL','SATOSHI','SECURE','SHITCOIN','SCALPING','STATE','SAFE','SCALABILITY','SEASON','SOFT','SEED','SECURITY','SIGNATURE','SIZE','SELL','STABLE','STAKE','TESTNET','TOKENIZATION','TRUSTLESS','TRANSACTION','TRANSMITTING','TOKEN','UTILITY','USER','WEB','WHALE','WALLET']
         setTimeout(()=>{
             intro.style.cssText = 'opacity:0;';
             setTimeout(()=>{
@@ -1183,7 +1202,11 @@
                                         localStorage.setItem('w_coin_level', parseInt(localStorage.getItem('w_coin_level')) + 1);
                                         levelUp = true;
                                     }
-                                    point_num.src = 'img/' + randPoint + '.png';
+                                    if(randPoint != 0){
+                                        point_num.src = 'img/' + randPoint + '.png';
+                                    }else{
+                                        point_num.src = 'img/' + randPoint + '.gif';
+                                    }
                                     setTimeout(()=>{
                                         point.style.cssText = 'transform:scale3d(1,1,1);';
                                         btn1.style.display = 'none';
@@ -1284,7 +1307,11 @@
                                         localStorage.setItem('w_coin_level', parseInt(localStorage.getItem('w_coin_level')) + 1);
                                         levelUp = true;
                                     }
-                                    point_num.src = 'img/' + randPoint + '.png';
+                                    if(randPoint != 0){
+                                        point_num.src = 'img/' + randPoint + '.png';
+                                    }else{
+                                        point_num.src = 'img/' + randPoint + '.gif';
+                                    }
                                     setTimeout(()=>{
                                         point.style.cssText = 'transform:scale3d(1,1,1);';
                                         btn1.style.display = 'none';
