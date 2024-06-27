@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="W-Coin Daily 'GuessTheChar' Combo designed in participation of the Create & Win Contest, This is a test project for W-Coin users to earn Top Fan bagdges as a reward of their loyalty to the project.">
-    <meta name="keywords" content="W-Coin, Daily, Combo, Claim, Tap, Crypto, Bot, Coin, Earn, Task, Reward, Referral, Invite, Cash, Launch, Ton, Blockhain, Fan, Token, Giveaway, Contest, Gift, Currency, Cryptocurrency">
-    <meta name="author" content="Anyadike Chibuike (~Skywizzy~) @Chibricase">
+    <meta name="description" content="#W-Coin #W-CoinContest; W-Coin Daily 'GuessTheChar' Combo designed in participation of the Create & Win Contest, This is a test project for W-Coin users to earn Top Fan bagdges as a reward of their loyalty to the project.">
+    <meta name="keywords" content="#W-Coin, #W-CoinContest, W-Coin, W-CoinContest, Daily, Combo, Claim, Tap, Crypto, Bot, Coin, Earn, Task, Reward, Referral, Invite, Cash, Launch, Ton, Blockhain, Fan, Token, Giveaway, Contest, Gift, Currency, Cryptocurrency">
+    <meta name="author" content="#W-Coin, #W-CoinContest Anyadike Chibuike (~Skywizzy~) @Chibricase">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>W-Coin Daily 'GuessTheChar' Combo (Create & Win Contest Project)</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" sizes="any">
@@ -35,13 +35,13 @@
         }
         .intro .intro_text{
             height: 100vh;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
             align-items: center;
             color: rgba(255,255,255,0.6);
-            padding-bottom: 50px;
+            padding-bottom: 20px;
         }
         .intro .intro_text img{
             width: 60px;
@@ -180,17 +180,104 @@
             flex-direction: column;
             align-items: center;
         }
+        .tutorial .tutorialBox p{
+            line-height: 1.5;
+        }
         .tutorial .tutorialBox h4{
+            text-shadow: 1px 1px grey;
             text-align: center;
             margin-bottom: 5px;
-            color: rgba(0, 0, 0, 0.8);
+            color: rgba(0, 0, 0, 0.7);
         }
         .tutorial .tutorialBox img{
             width: 150px;
             margin: 0px auto;
         }
+        .claimBox{
+            position: fixed;
+            height: 100vh;
+            width: 100%;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 2;
+            transition: all 500ms ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: scale3d(0,0,0);
+        }
+        .claimBox .claim{
+            background-color: white;
+            width: 240px;
+            padding: 10px;
+        }
+        .claimBox .claim div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 3px solid rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .claimBox .claim img{
+            margin-bottom: 15px;
+            width: 100px;
+        }
+        .claimBox .claim p{
+            text-align: center;
+            font-size: 0.8em;
+            line-height: 1.5;
+            color: rgba(0, 0, 0, 0.8);
+
+        }
+        .claimBox .claim p label{
+            color: royalblue;
+        }
+        .claimBox .claim p > span{
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: royalblue;
+        }
+        .point{
+            position: fixed;
+            height: 100vh;
+            width: 100%;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 2;
+            transition: all 500ms ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transform: scale3d(0,0,0);
+        }
+        .point img:first-child{
+            margin-bottom: 10px;
+        }
+        .point img:last-child:hover{
+            opacity: 0.8;
+            box-shadow: 1px 1px 40px yellowgreen;
+        }
+        .point img:last-child{
+            width: 200px;
+            cursor: pointer;
+            border-radius: 50px;
+            padding: 0px 20px;
+            
+        }
+        .point button:hover{
+            box-shadow: none;
+        }
+        .point p{
+            font-size: 1.8em;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.9);
+            cursor: pointer;
+            text-shadow: 2px 2px grey;
+        }
         #bg_vid{
-            position: absolute;
+            position: fixed;
             top: 0px;
             z-index: -1;
             height: 100vh;
@@ -198,21 +285,17 @@
             object-fit: cover;
         }
         main{
-            height: 100vh;
+            min-height: 100vh;
             background-color: rgba(0,0,0,0.7);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            overflow-y: auto;
+            padding: 0px 20px;
+            overflow: auto;
         }
         header{
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 10px 0px;
             width: 100%;
         }
         .header_top{
@@ -227,28 +310,58 @@
             justify-content: center;
             margin-bottom: 10px;
         }
-        .left img{
+        .left > img{
             height: fit-content;
             width: 50px;
         }
-        .left h1{
+        .left > h1{
             height: fit-content;
             color: wheat;
+        }
+        .right:hover{
+            opacity: 0.8;
         }
         .right{
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 10px;
+            cursor: pointer;
         }
-        .right img{
+        .right > img{
             height: fit-content;
             width: 30px;
         }
-        .right h4{
+        .right > h4{
             height: fit-content;
             color: wheat;
             color: whitesmoke;
+        }
+        .right > #online{
+            width: 8px;
+            margin: 0px 5px;
+        }
+        .right .wall{
+            display: flex;
+            align-items: center;
+            padding: 0px 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 7px 10px;
+            visibility: hidden;
+        }
+        .right .wall span{
+            color: wheat;
+            font-size: 0.8em;
+            margin-right: 5px;
+        }
+        .right .wall img{
+            width: 25px;
+            margin-right: 7px;
+        }
+        .right .wall p{
+            font-size: 1em;
+            color: gold;
         }
         header > h3{
             color: white;
@@ -262,6 +375,45 @@
             color: lightblue;
             margin: 10px 0px;
         }
+        .profile{
+            position: fixed;
+            top: 68px;
+            right: 0px;
+            width:250px;
+            background-color: white;
+            padding: 10px;
+            transition: transform 500ms ease-in-out;
+            transform: translate(300px, 0px);
+        }
+        .profile .box{
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 7px;
+            padding: 5px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .profile img{
+            width: 70px;
+        }
+        .profile p{
+            margin: 5px 0px 15px 0px;
+            color: royalblue;
+            font-size: 0.9em;
+        }
+        .profile .box table{
+            font-size: 0.8em;
+            width: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-collapse: collapse;
+        }
+        td, th{
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 10px;
+        }
+        .profile .box table img{
+            width: 80px;
+        }
         .time{
             padding: 10px;
             margin-top: 10px;
@@ -272,6 +424,31 @@
             color:pink;
             font-size: 1.7em;
         }
+        .walletBox{
+            position: absolute;
+            top: 87px;
+            right: 0px;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-right: none;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(255,255,255,0.1);
+        }
+        .walletBox img{
+            width: 35px;
+        }
+        .walletBox span{
+            font-size: 1.1em;
+            color: gold;
+            margin: 15px 0px;
+        }
+        .walletBox p{
+            color: wheat;
+        }
         section{
             height: 400px;
             width: 100%;
@@ -280,6 +457,24 @@
             flex-direction: column;
             justify-content: center;
             align-items:center;
+        }
+        .advert{
+            width: 100%;
+            height: 400px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: top;
+        }
+        .advert .wait{
+            padding: 10px 20px;
+            background-color: indianred;
+            color: white;
+        }
+        .advert img{
+            width: fit-content;
+            height: 80%;
         }
         .screen{
             width: 100%;
@@ -303,7 +498,6 @@
         }
         .w_coin{
             transition: all 500ms ease-in-out;
-            /* transform: scale3d(0,0,0); */
         }
         .w_coin img{
             width: 85px;
@@ -404,6 +598,21 @@
         }
         /* Media queries for responsiveness */
         @media screen and (max-width: 650px) {
+            .right .wall{
+                visibility: visible;
+            }
+            .walletBox{
+                visibility: hidden;
+            }
+            .right h4{
+                display: none;
+            }
+            .header_top .left span{
+                display: none;
+            }
+            .advert img{
+                width: 100%;
+            }
             .scr{
                 font-size: calc(1em + 4vw);
             }
@@ -415,6 +624,18 @@
             }
         }
         @media screen and (max-width: 450px) {
+            main{
+                padding: 10px;
+            }
+            .left img{
+                width: 40px;
+            }
+            .left h1{
+                font-size: 1.1em;
+            }
+            .right h4{
+                font-size: 0.8em;
+            }
             header h3{
                 font-size: 1.1em;
             }
@@ -465,7 +686,7 @@
             <p>Loading</p>
             <span>(Credits To W-Coin Project Team, #ToTheMoon)</span>
         </div>
-        <video id="intro_vid" autoplay loop muted poster="img/bg.png"><source src="vid/6.mp4"></video>    
+        <video id="intro_vid" autoplay loop muted poster="img/bg.png"><source src="vid/2.mp4"></video>    
     </div>
     <div class="signup">
         <div class="formBox">
@@ -523,26 +744,67 @@
                 </p>
                 <h5>[ 3 ]</h5>
                 <p style="text-align: center; font-size: 0.8em;">
-                    Accumulate 100 fan badges to earn "The Top Fan Badge",<span style="display: block;">Goodluck mate!.</span>
+                    Accumulate 20 fan badges to earn "The Top Fan Badge",<span style="display: block;">Goodluck mate!.</span>
                 </p>
-                <button id="start" style="padding: 10px 15px; cursor: pointer; color: white; background-color: royalblue; border: none; margin-top: 20px; border-radius: 5px;">Start Playing</button>
+                <button id="start" style="padding: 10px 15px; cursor: pointer; color: white; background-color: royalblue; border: none; margin-top: 10px; border-radius: 5px;">Start Playing</button>
             </div>
         </div>
+    </div>
+    <div class="claimBox">
+        <div class="claim">
+            <div>
+                <img class="level" src="img/level1.png">
+                <p><span>Bravo!!</span> You have been awarded a <label><span class="level">1</span> Star Level</label> Top Fan Badge, play the game to upgrade and earn higher Badges</p>
+            </div>
+        </div>
+    </div>
+    <div class="point">
+        <img id="point_num" src="img/1.png">
+        <img id="closePoint" src="img/claim.gif">
     </div>
     <video id="bg_vid" autoplay loop muted poster="img/bg.png"><source src="vid/1.mp4"></video>
     <main>
         <header>
             <article class="header_top">
-                <div class="left"><img src="img/logo.png" alt="w-coin logo">&nbsp;<h1>W-Coin Game</h1></div>
-                <div class="right"><img id="user_avatar" src="img/accounti.png" alt="user avatar">&nbsp;<h4 id="user_name">User</h4></div>
+                <div class="left"><img src="img/logo.png" alt="w-coin logo">&nbsp;<h1>W-Coin <span>Game</span></h1></div>
+                <div class="right"><div class="wall"><span>Lv<span class="level">1</span></span><img src="img/wallet.png"><p class="badge">0B</p></div><img src="img/doti.png" id="online"><img class="user_avatar" src="img/accounti.png" alt="user avatar">&nbsp;<h4 class="user_name">John Doe</h4></div>
             </article><br>
             <h3>Daily 'GuessTheChar' Combo</h3>
             <p>(Create & Win Contest Project)</p>
             <div class="time">
                 <p id="timeScr"><b>00</b>hrs : <b>00</b>mins : <b>00</b>secs</p>
             </div>
+            <div class="walletBox">
+                <img src="img/wallet.png">
+                <span class="badge">0B</span>
+                <p>Lv<span class="level">1</span></p>
+            </div>
         </header>
-        <section>
+        <div class="profile">
+            <div class="box">
+                <img  src="img/account.png" class="user_avatar">
+                <p class="user_name">John Doe</p>
+                <table>
+                    <tr>
+                        <td>Badge:</td>
+                        <td class="badge">0B</td>
+                    </tr>
+                    <tr>
+                        <td>Rank:</td>
+                        <td>Level <span class="level">1</span></td>
+                    </tr>
+                    <tr>
+                        <td>Award:</td>
+                        <td><img class="level" src="img/level1.png"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div style="display:none;" class="advert">
+            <p class="wait">⌛ Please wait for the timer to elapse <i class="fa fa-spinner fa-spin"></i></p><br>
+            <img src="img/1aa.png">
+        </div>
+        <section class="section">
             <article class="screen">
                 <div class="scr">
                     <h4 class="w_coin"><img src="img/8i.png"></h4>
@@ -627,7 +889,7 @@
             </div>
         </section>
         <footer>
-            <p>Credits To W-Coin Team designed by Chibricase</p>
+            <p>Credits To W-Coin Team #WCoin #WCoinContest designed by Skywizzy @Chibricase</p>
         </footer>
     </main>
     <script>
@@ -635,13 +897,17 @@
         const btn2 = document.querySelector(".btn2");
         const w_coin = document.querySelectorAll(".w_coin"); 
         const ava = document.querySelectorAll(".ava"); 
-        const user_avatar = document.querySelector('#user_avatar');
-        const user_name = document.querySelector('#user_name');
+        const user_avatar = document.querySelectorAll('.user_avatar');
+        const user_name = document.querySelectorAll('.user_name');
+        const user_level = document.querySelectorAll('.level');
         const scrShow = document.querySelector('#scrShow');
         const timeScr = document.querySelector('#timeScr');
         const start = document.querySelector('#start');
+        const badge = document.querySelectorAll('.badge');
         const how = document.querySelector('#how');
         const username = document.querySelector('#username');
+        const point_num = document.querySelector('#point_num');
+        const closePoint = document.querySelector('#closePoint');
         const main_avatar = document.querySelector('#main_avatar');
         const correct = document.querySelector(".correct");
         const wrong = document.querySelector(".wrong");
@@ -649,19 +915,32 @@
         const signup = document.querySelector(".signup");
         const formBox = document.querySelector(".formBox");
         const tutorial = document.querySelector(".tutorial");
+        const claimBox= document.querySelector(".claimBox");
+        const point = document.querySelector(".point");
+        const advert = document.querySelector(".advert");
+        const section = document.querySelector(".section");
+        const right = document.querySelector(".right");
+        const profile = document.querySelector(".profile");
         const bothBooks = ['GENESIS','EXODUS','LEVITICUS','NUMBERS','DEUTERONOMY','JOSHUA','JUDGES','RUTH','SAMUEL','KINGS','CHRONICLES','EZRA','NEHEMIAH','ESTHER','JOB','PSALM','PROVERBS','ECCLESIASTES','ISAIAH','JEREMIAH','LAMENTATIONS','EZEKIEL','DANIEL','HOSEA','JOEL','AMOS','OBADIAH','JONAH','MICAH','NAHUM','HABAKKUK','ZEPHANIAH','HAGGAI','ZECHARIAH','MALACHI','MATTHEW','MARK','LUKE','JOHN','ACTS','ROMANS','CORINTHIANS','GALATIANS','EPHESIANS','PHILIPPIANS','COLOSSIANS','THESSALONIANS','TIMOTHY','TITUS','PHILEMON','HEBREWS','JAMES','PETER','JOHN','JUDE','REVELATION']
         setTimeout(()=>{
             intro.style.cssText = 'opacity:0;';
             setTimeout(()=>{
                 intro.style.cssText = 'display:none;';
-                if(localStorage.getItem('w_coin_username') == '' && localStorage.getItem('w_coin_avatar') == ''){
+                if("w_coin_username" in localStorage && "w_coin_avatar" in localStorage){
+                    let user_avac = 'img/' + localStorage.getItem('w_coin_avatar') + '.png';
+                    let user_nomen = localStorage.getItem('w_coin_username');
+                    user_avatar[0].src = user_avac;
+                    user_avatar[1].src = user_avac;
+                    user_name[0].innerHTML = user_nomen;
+                    user_name[1].innerHTML = user_nomen;
+                }else{
                     signup.style.cssText = 'transform:scale3d(1,1,1);';
                     setTimeout(()=>{
                         formBox.style.cssText = 'height:450px;';
                     },500);
                 }
             },500);
-        },3000);
+        },9000);
         ava.forEach(element => {
             element.addEventListener('click', ()=>{
                 main_avatar.src = 'img/' + element.value + '.png';
@@ -670,9 +949,28 @@
         });
         how.addEventListener('click', ()=>{
             if(username.value != '' && localStorage.getItem('w_coin_avatar') != ''){
+                localStorage.setItem('w_coin_badge', 0);
+                localStorage.setItem('w_coin_level', 1);
                 formBox.style.cssText = 'height:10px;';
-                localStorage.setItem('w_coin_username', username.value);
+                localStorage.setItem('w_coin_username', username.value.charAt(0).toUpperCase() + username.value.slice(1));
                 setTimeout(()=>{
+                    let user_avac2 = 'img/' + localStorage.getItem('w_coin_avatar') + '.png';
+                    let user_nomen2 = localStorage.getItem('w_coin_username');
+                    user_avatar[0].src = user_avac2;
+                    user_avatar[1].src = user_avac2;
+                    user_name[0].innerHTML = user_nomen2;
+                    user_name[1].innerHTML = user_nomen2;
+                    let badgeSize = localStorage.getItem('w_coin_badge');
+                    let user_lev = localStorage.getItem('w_coin_level');
+                    badge[0].innerHTML = badgeSize + 'B';
+                    badge[1].innerHTML = badgeSize + 'B';
+                    badge[2].innerHTML = badgeSize + 'B';
+                    user_level[0].src = 'img/level' + user_lev + '.png';
+                    user_level[1].innerHTML = user_lev;
+                    user_level[2].innerHTML = user_lev;
+                    user_level[3].innerHTML = user_lev;
+                    user_level[4].innerHTML = user_lev;
+                    user_level[5].src = 'img/level' + user_lev + '.png';
                     signup.style.cssText = 'transform:scale3d(0,0,0);';
                     setTimeout(()=>{
                         tutorial.style.cssText = 'transform:scale3d(1,1,1);';
@@ -682,19 +980,42 @@
                 alert('Pick an Avatar then enter a username to continue');
             }
         });
+        let levelUp = false;
         start.addEventListener('click', ()=>{
             setTimeout(()=>{
-                user_avatar.src = 'img/' + localStorage.getItem('w_coin_avatar') + '.png';
-                user_name.innerHTML = localStorage.getItem('w_coin_username');
                 tutorial.style.cssText = 'transform:scale3d(0,0,0);';
+                setTimeout(()=>{
+                    claimBox.style.cssText = 'transform:scale3d(1,1,1);';
+                    setTimeout(()=>{
+                        claimBox.style.cssText = 'transform:scale3d(0,0,0);';
+                    },5000);
+                },500);
             },500);
         });
+        let prof = false;
+        right.addEventListener('click', ()=>{
+            if(prof){
+                profile.style.cssText = 'transform: translate(300px, 0px);';
+                prof = false;
+            }else{
+                profile.style.cssText = 'transform: translate(0px, 0px);';
+                prof = true;
+            }
+        });
+        let randPoint = 0;
         init();
         function init(){
-            if("w_coin_username" in localStorage){
-                user_avatar.src = 'img/' + localStorage.getItem('w_coin_avatar') + '.png';
-                user_name.innerHTML = localStorage.getItem('w_coin_username');
-            }
+            let badgeSize = localStorage.getItem('w_coin_badge');
+            let user_lev = localStorage.getItem('w_coin_level');
+            badge[0].innerHTML = badgeSize + 'B';
+            badge[1].innerHTML = badgeSize + 'B';
+            badge[2].innerHTML = badgeSize + 'B';
+            user_level[0].src = 'img/level' + user_lev + '.png';
+            user_level[1].innerHTML = user_lev;
+            user_level[2].innerHTML = user_lev;
+            user_level[3].innerHTML = user_lev;
+            user_level[4].innerHTML = user_lev;
+            user_level[5].src = 'img/level' + user_lev + '.png';
             if("w_coin" in localStorage){
                 let size = parseInt(localStorage.getItem('w_coin'));
                 let namba = ['W','-','C','O','I','N'];
@@ -703,10 +1024,24 @@
                         w_coin[m].innerHTML = namba[m];
                     }
                 }, 1000);
+                closePoint.addEventListener('click', () => {
+                    point.style.cssText = 'transform:scale3d(0,0,0);';
+                    if(levelUp){
+                        claimBox.style.cssText = 'transform:scale3d(1,1,1);';
+                        setTimeout(()=>{
+                            claimBox.style.cssText = 'transform:scale3d(0,0,0);';
+                        },5000);
+                        levelUp = false;
+                    }
+                });
                 if(size >= w_coin.length - 1){
-                    // document.write('Game Completed, Congrats you have won a Top Fan Badge, Come back Tomorrow.');
                     if(parseInt(localStorage.getItem('w_coin_time')) < 0){
                         localStorage.removeItem('w_coin_time');
+                        advert.style.display = 'none';
+                        section.style.display = 'flex';
+                    }else{
+                        advert.style.display = 'flex';
+                        section.style.display = 'none';
                     }
                     return timerCount();
                 }else{
@@ -723,15 +1058,13 @@
         function timerCount(){
             let timer = 0;
             if("w_coin_time" in localStorage){
-
-                // console.log('w_coin_timestamp = ' + Math.floor(Date.now() / 1000));
-
-                // const d = new Date();
-                // console.log('w_coin_timestamp_0 = ' + Math.round(d.getTime() / 1000));
-
                 timer = parseInt(localStorage.getItem('w_coin_time'));
             }else{
-                timer = 10 // 86400; ---- for firstime run only!!
+                if(randPoint != 0){
+                    timer = 60 // 86400; ---- for firstime run only!!
+                }else{
+                    timer = 30 // 86400; ---- for firstime run only!!
+                }
             }
             var hrs = 0;
             var min = 0;
@@ -765,6 +1098,8 @@
                 localStorage.removeItem('w_coin_alphabet2');
                 localStorage.removeItem('w_coin_word');
                 localStorage.removeItem('w_coin_timestamp');
+                advert.style.display = 'none';
+                section.style.display = 'flex';
                 for(var f = 0; f < w_coin.length; f++){
                     w_coin[f].style.transform = 'scale3d(0,0,0)';
                 }
@@ -795,6 +1130,7 @@
                     return lttArr;
                 }
             }
+            randPoint = parseInt(Math.round(Math.random() * (3)));
             if(wordPicked.length < 6){
                 btn1.style.display = 'block';
                 scrShow.style.display = 'block';
@@ -833,13 +1169,26 @@
                             }
                             if(parseInt(localStorage.getItem('w_coin')) != w_coin.length){
                                 if(parseInt(localStorage.getItem('w_coin')) > 4){
-                                    localStorage.setItem('w_coin_timestamp', Math.floor(Date.now() / 1000));
-
-                                    const d = new Date();
-                                    localStorage.setItem('w_coin_timestamp_0', Math.round(d.getTime() / 1000));
-
-                                    btn1.style.display = 'none';
-                                    scrShow.style.display = 'none';    
+                                    localStorage.setItem('w_coin_badge', parseInt(localStorage.getItem('w_coin_badge')) + randPoint);
+                                    if(localStorage.getItem('w_coin_badge') == '20' || localStorage.getItem('w_coin_badge') == '21' || localStorage.getItem('w_coin_badge') == '22' && localStorage.getItem('w_coin_level') == '1'){
+                                        localStorage.setItem('w_coin_level', parseInt(localStorage.getItem('w_coin_level')) + 1);
+                                        levelUp = true;
+                                    }else if(localStorage.getItem('w_coin_badge') == '40' || localStorage.getItem('w_coin_badge') == '41' || localStorage.getItem('w_coin_badge') == '42' && localStorage.getItem('w_coin_level') == '2'){
+                                        localStorage.setItem('w_coin_level', parseInt(localStorage.getItem('w_coin_level')) + 1);
+                                        levelUp = true;
+                                    }else if(localStorage.getItem('w_coin_badge') == '60' || localStorage.getItem('w_coin_badge') == '61' || localStorage.getItem('w_coin_badge') == '62' && localStorage.getItem('w_coin_level') == '3'){
+                                        localStorage.setItem('w_coin_level', parseInt(localStorage.getItem('w_coin_level')) + 1);
+                                        levelUp = true;
+                                    }else if(localStorage.getItem('w_coin_badge') == '80' || localStorage.getItem('w_coin_badge') == '81' || localStorage.getItem('w_coin_badge') == '82' && localStorage.getItem('w_coin_level') == '4'){
+                                        localStorage.setItem('w_coin_level', parseInt(localStorage.getItem('w_coin_level')) + 1);
+                                        levelUp = true;
+                                    }
+                                    point_num.src = 'img/' + randPoint + '.png';
+                                    setTimeout(()=>{
+                                        point.style.cssText = 'transform:scale3d(1,1,1);';
+                                        btn1.style.display = 'none';
+                                        scrShow.style.display = 'none';
+                                    },300);
                                 }
                                 localStorage.removeItem('w_coin_alphabet');
                                 localStorage.removeItem('w_coin_word');
@@ -921,15 +1270,28 @@
                             }
                             if(parseInt(localStorage.getItem('w_coin')) != w_coin.length){
                                 if(parseInt(localStorage.getItem('w_coin')) > 4){
+                                    localStorage.setItem('w_coin_badge', parseInt(localStorage.getItem('w_coin_badge')) + randPoint);
+                                    if(localStorage.getItem('w_coin_badge') == '20' || localStorage.getItem('w_coin_badge') == '21' || localStorage.getItem('w_coin_badge') == '22' && localStorage.getItem('w_coin_level') == '1'){
+                                        localStorage.setItem('w_coin_level', parseInt(localStorage.getItem('w_coin_level')) + 1);
+                                        levelUp = true;
+                                    }else if(localStorage.getItem('w_coin_badge') == '40' || localStorage.getItem('w_coin_badge') == '41' || localStorage.getItem('w_coin_badge') == '42' && localStorage.getItem('w_coin_level') == '2'){
+                                        localStorage.setItem('w_coin_level', parseInt(localStorage.getItem('w_coin_level')) + 1);
+                                        levelUp = true;
+                                    }else if(localStorage.getItem('w_coin_badge') == '60' || localStorage.getItem('w_coin_badge') == '61' || localStorage.getItem('w_coin_badge') == '62' && localStorage.getItem('w_coin_level') == '3'){
+                                        localStorage.setItem('w_coin_level', parseInt(localStorage.getItem('w_coin_level')) + 1);
+                                        levelUp = true;
+                                    }else if(localStorage.getItem('w_coin_badge') == '80' || localStorage.getItem('w_coin_badge') == '81' || localStorage.getItem('w_coin_badge') == '82' && localStorage.getItem('w_coin_level') == '4'){
+                                        localStorage.setItem('w_coin_level', parseInt(localStorage.getItem('w_coin_level')) + 1);
+                                        levelUp = true;
+                                    }
+                                    point_num.src = 'img/' + randPoint + '.png';
+                                    setTimeout(()=>{
+                                        point.style.cssText = 'transform:scale3d(1,1,1);';
+                                        btn1.style.display = 'none';
+                                        btn2.style.display = 'none';
+                                        scrShow.style.display = 'none';
+                                    },300);
                                     localStorage.setItem('w_coin', 5);
-                                    // localStorage.setItem('w_coin_timestamp', Math.floor(Date.now() / 1000));
-
-                                    // const d = new Date();
-                                    // localStorage.setItem('w_coin_timestamp_0', Math.round(d.getTime() / 1000));
-
-                                    btn1.style.display = 'none';
-                                    btn2.style.display = 'none';
-                                    scrShow.style.display = 'none';
                                 }
                                 localStorage.removeItem('w_coin_alphabet1');
                                 localStorage.removeItem('w_coin_alphabet2');
