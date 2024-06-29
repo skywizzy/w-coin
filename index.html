@@ -25,8 +25,105 @@
             list-style: none;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
-        body{
-            background-color:black;
+        .tutor{
+            position: fixed;
+            height: 100vh;
+            width: 100%;
+            background: rgba(0,0,0,0.9) url('img/bg3.png');
+            background-position: center;
+            background-size: cover;
+            z-index: 3;
+            transition: all 300ms ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translate(0px,-100vh);
+        }
+        .tutor .box{
+            max-width: 600px;
+            min-height: 400px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            border: 1px solid grey;
+            border-radius: 7px;
+        }
+        .tutor .box h3{
+            font-size: 0.7em;
+            margin-bottom: 20px;
+        }
+        .tutor .box iframe{
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .tutor .box p{
+            font-size: 0.8em;
+        }
+        .tutor .box p label{
+            cursor: pointer;
+        }
+        .tutor .box p button{
+            padding: 10px 15px;
+            color: white;
+            background-color: indianred;
+            border: none;
+            cursor: pointer;
+        }
+        .launch{
+            position: fixed;
+            height: 100vh;
+            width: 100%;
+            background: rgba(0,0,0,0.9) url('img/bg3.png');
+            background-position: center;
+            background-size: cover;
+            z-index: 2;
+            transition: all 300ms ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            /* transform: scale3d(0,0,0); */
+        }
+        .launch .box{
+            opacity: 0.8;
+            width: 300px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 5px;
+            border: 1px solid grey;
+            border-radius: 7px;
+        }
+        .launch .box > img{
+            width: 100%;
+        }
+        .launch .box div{
+            display: flex;
+            margin: 30px 30px 30px 0px;
+        }
+        .launch .box div img:last-child{
+            cursor: pointer;
+            transform: scale3d(1,1,1);
+            transition: all 300ms ease-in-out;
+        }
+        .launch .box div img:last-child:hover{
+            cursor: pointer;
+            transform: scale3d(1.1,1.1,1.1);
+        }
+        .launch .box div img{
+            width: 150px;
+        }
+        .launch .box p{
+            font-size: 0.8em;
+            margin: 20px 0px;
+            text-align: center;
+            color: darkslateblue;
+            font-weight: bold;
+            padding-bottom: 20px;
+            border-bottom: 3px solid indianred;
         }
         .intro{
             position: fixed;
@@ -34,7 +131,8 @@
             width: 100%;
             background-color: black;
             z-index: 2;
-            transition: all 500ms ease-in-out;
+            transition: all 300ms ease-in-out;
+            transform: scale3d(0,0,0);
         }
         .intro .intro_text{
             height: 100vh;
@@ -44,7 +142,7 @@
             justify-content: flex-end;
             align-items: center;
             color: rgba(255,255,255,0.6);
-            padding-bottom: 70px;
+            padding-bottom: 40px;
         }
         .intro .intro_text img{
             width: 60px;
@@ -259,6 +357,7 @@
         }
         .point img:first-child{
             margin-bottom: 10px;
+            width: 150px;
         }
         .point img:last-child:hover{
             opacity: 0.8;
@@ -269,7 +368,6 @@
             cursor: pointer;
             border-radius: 50px;
             padding: 0px 20px;
-            
         }
         .point button:hover{
             box-shadow: none;
@@ -280,6 +378,40 @@
             color: rgba(255, 255, 255, 0.9);
             cursor: pointer;
             text-shadow: 2px 2px grey;
+        }
+        .unlock{
+            position: fixed;
+            height: 100vh;
+            width: 100%;
+            z-index: 2;
+            transition: all 500ms ease-in-out;
+            background: url('img/flower.gif') no-repeat;
+            background-position: center;
+            background-size: cover;
+            visibility: hidden;
+            opacity: 0;
+        }
+        .unlock div{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .unlock img{
+            margin-bottom: 10px;
+            width: 150px;
+        }
+        .unlock h1{
+            width: 200px;
+            cursor: pointer;
+            padding: 20px;
+            text-shadow: 2px 2px lightcoral;
+            color: gold;
+            border-radius: 5px;
+            border-top: 2px solid white;
         }
         #bg_vid{
             position: fixed;
@@ -442,6 +574,7 @@
             flex-direction: column;
             align-items: center;
             background-color: rgba(255,255,255,0.1);
+            animation: boxSwimmer 1s ease-in-out infinite alternate;
         }
         .walletBox img{
             width: 35px;
@@ -520,6 +653,7 @@
         }
         .w_coin img{
             width: 85px;
+            animation: boxGlower 1s ease-in-out infinite alternate;
         }
         .txt{
             padding: 10px 15px;
@@ -570,6 +704,12 @@
             border-radius: 7px;
             transition: all 300ms ease-in-out;
         }
+        .glower{
+            animation: shadowGlitter 700ms ease-in-out infinite alternate;
+        }
+        .glower:focus{
+            animation: none;
+        }
         select option{
             color:black;
         }
@@ -618,9 +758,6 @@
         }
         /* Media queries for responsiveness */
         @media screen and (max-width: 650px) {
-            .intro #intro_vid{
-                object-fit: contain;
-            }
             .right .wall{
                 visibility: visible;
             }
@@ -700,16 +837,59 @@
                 padding: 10px;
             }
         }
+        @keyframes boxGlower {
+            from{
+                transform: scale3d(0.9, 0.9, 0.9);
+            }to{
+                transform: scale3d(1.1, 1.1, 1.1);
+            }
+        }
+        @keyframes boxSwimmer {
+            from{
+                transform: translate(0px, 5px);
+            }to{
+                transform: translate(0px, -5px);
+            }
+        }
+        @keyframes shadowGlitter {
+            from{
+                box-shadow: 0px 0px 5px rgba(255,255,255,0.4);
+            }to{
+                box-shadow: 0px 0px 10px rgba(255,255,255,0.8);
+            }
+        }
     </style>
 </head>
 <body>
+    <audio class="intro_sound" autoplay><source src="sound/rocket1.wav"></audio>
+    <audio class="main_sound" autoplay loop><source src="sound/bg.mp3"></audio>
+    <audio class="clap_sound" autoplay><source src="sound/good.mp3"></audio>
+    <div class="tutor">
+        <div class="box">
+            <h3>🙏 PLEASE WATCH HOW TO PLAY THE GAME</h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/1YyAzVmP9xQ?si=MRp_mmUAjzYjqVkl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p>
+                <input type="checkbox" name="" id="no"> <label for="no">Do not watch this again ?</label> <button id="close">Close</button>
+            </p>
+        </div>
+    </div>
+    <div class="launch">
+        <div class="box">
+            <img src="img/logoSpace.png" alt="w-coin launch">
+            <div>
+                <img src="img/launch.gif">
+                <img id="launchy" src="img/LaunchBtn.gif">
+            </div>
+            <p>Push the <span>W-Coin</span> Launch Button <br> <span style="font-size: 0.8em; color: green;">#WCoin #WCoinContest</span></p>
+        </div>
+    </div>
     <div class="intro">
         <div class="intro_text">
             <img src="img/pleasewait.gif">
             <p>Loading</p>
             <span>(Credits To W-Coin Project Team, #WCoin #WCoinContest)</span>
         </div>
-        <video id="intro_vid" autoplay loop muted poster="img/bg2.png"><source src="vid/2.mp4"></video>    
+        <video id="intro_vid" autoplay loop muted poster="img/bg3.png"><source src="vid/2.mp4"></video>    
     </div>
     <div class="signup">
         <div class="formBox">
@@ -763,7 +943,7 @@
                 <img style="margin-bottom: 10px;" src="img/underline.png">
                 <h5>[ 1 ]</h5>
                 <p style="text-align: center; font-size: 0.8em; margin-bottom: 10px;">
-                    You will be given random cryptocurrency words with one or two hidden letters, your task is to find and replace the correct hidden letters to complete the words and unlock the asset to earn a fan badge
+                    You will be given random words with one or two hidden letters, your task is to find and replace the correct hidden letters to complete the words and unlock the asset to earn a fan bagdge
                 </p>
                 <h5>[ 3 ]</h5>
                 <p style="text-align: center; font-size: 0.8em;">
@@ -784,6 +964,12 @@
     <div class="point">
         <img id="point_num" src="img/1.png">
         <img id="closePoint" src="img/claim.gif">
+    </div>
+    <div class="unlock">
+        <div>
+            <img class="unlockedImg" src="img/w.gif">
+            <h1>Unlocked</h1>
+        </div>
     </div>
     <video id="bg_vid" autoplay loop muted poster="img/bg.png"><source src="vid/1.mp4"></video>
     <main>
@@ -913,7 +1099,7 @@
             </div>
         </section>
         <footer>
-            <p>Credits To W-Coin Team #WCoin #WCoinContest designed by Skywizzy @Chibricase</p>
+            <p>Credits To W-Coin Team #WCoin #WCoinContest (~Skywizzy~ @Chibricase)</p>
         </footer>
     </main>
     <script>
@@ -929,6 +1115,9 @@
         const start = document.querySelector('#start');
         const badge = document.querySelectorAll('.badge');
         const how = document.querySelector('#how');
+        const no = document.querySelector('#no');
+        const close = document.querySelector('#close');
+        const launchy = document.querySelector('#launchy');
         const username = document.querySelector('#username');
         const point_num = document.querySelector('#point_num');
         const closePoint = document.querySelector('#closePoint');
@@ -945,31 +1134,68 @@
         const section = document.querySelector(".section");
         const right = document.querySelector(".right");
         const profile = document.querySelector(".profile");
-        // const bothBooks = ['GENESIS','EXODUS','LEVITICUS','NUMBERS','DEUTERONOMY','JOSHUA','JUDGES','RUTH','SAMUEL','KINGS','CHRONICLES','EZRA','NEHEMIAH','ESTHER','JOB','PSALM','PROVERBS','ECCLESIASTES','ISAIAH','JEREMIAH','LAMENTATIONS','EZEKIEL','DANIEL','HOSEA','JOEL','AMOS','OBADIAH','JONAH','MICAH','NAHUM','HABAKKUK','ZEPHANIAH','HAGGAI','ZECHARIAH','MALACHI','MATTHEW','MARK','LUKE','JOHN','ACTS','ROMANS','CORINTHIANS','GALATIANS','EPHESIANS','PHILIPPIANS','COLOSSIANS','THESSALONIANS','TIMOTHY','TITUS','PHILEMON','HEBREWS','JAMES','PETER','JOHN','JUDE','REVELATION']
+        const unlock = document.querySelector(".unlock");
+        const unlockedImg = document.querySelector(".unlockedImg");
+        const intro_sound = document.querySelector(".intro_sound");
+        const main_sound = document.querySelector(".main_sound");
+        const clap_sound = document.querySelector(".clap_sound");
+        const launch = document.querySelector(".launch");
+        const tutor = document.querySelector(".tutor");
         const bothBooks = ['ACTOR','AIRDROP','ALTCOIN','ATH','ALGORITHM','ADDRESS','APPLICATION','ATTACK','BEARISH','BULLISH','BULL','BURN','BAG','BITCOIN','BLOCK','BLOCKCHAIN','CERTIFICATE','COIN','COINBASE','CROWDSALE','CRYPTOART','COMPANY','CONFIRMATION','CONSENSUS','CONTRACT','CONSORTIUM','CRYPTOCURRENCY','CRYPTOGRAPHY','CURRENCY','COMPLETE','CRIMES','CRYPTOECONOMICS','DERIVATIVES','DAPP','DECENTRALIZATION','DISTRIBUTION','DIGITAL','DUMPING','DUMP','DYOR','DECENTRALIZED','DAO','DEX','DEFI','ETHER','ENTRY','EXIT','ETHEREUM','ETHERSCAN','EXCHANGE','FUTURE','FEAR','FEE','FUNGIBLE','FIAT','FINANCE','FOMO','FUD','FORK','GAS','GREED','GIVEAWAY','HASH','HALVING','HOLDER','HARD','HODL','HARDWARE','HASHGRAPH','HASHRATE','HEXADECIMAL','IMMUTABILITY','ICO','IDO','INVEST','INVESTMENT','ITO','IEO','KYC','KEY','LIQUIDITY','LAMBO','LOCKED','LIMIT','VIRTUAL','LOSS','MAINNET','METAMASK','MINER','MARKET','MINING','MONEY','MERKLE','MULTISIGNATURE','MEMECOIN','MOON','NETWORK','NAKAMOTO','NODE','ORDER','PRIVATE','POOL','PRICE','PUMPING','PUMP','PROOF','PUBLIC','PROFIT','PROTOCOL','PROTECTION','PHRASE','RIPPLE','REWARD','RUGPULL','SATOSHI','SECURE','SHITCOIN','SCALPING','STATE','SAFE','SCALABILITY','SEASON','SOFT','SEED','SECURITY','SIGNATURE','SIZE','SELL','STABLE','STAKE','TESTNET','TOKENIZATION','TRUSTLESS','TRANSACTION','TRANSMITTING','TOKEN','UTILITY','USER','WEB','WHALE','WALLET']
-        setTimeout(()=>{
-            intro.style.cssText = 'opacity:0;';
+        
+        no.addEventListener('change', () => {
+            if(no.checked){
+                localStorage.setItem('w_coin_tutor','no');
+            }else{
+                localStorage.removeItem('w_coin_tutor');
+            }
+        });
+        close.addEventListener('click', () => {
+            tutor.style.cssText = 'transform:translate(0px,-100vh);';
+        });
+
+
+        if("w_coin_tutor" in localStorage){}else{
+            setTimeout(() => {
+                tutor.style.cssText = 'transform:translate(0px,0px);';
+            }, 1000)
+        }
+
+        launchy.addEventListener("click", () => {
+            intro_sound.play();
+            main_sound.play();
+            main_sound.muted = true;
+            main_sound.volume = 0.1;
+            clap_sound.play();
+            clap_sound.muted = true;
+            launch.style.cssText = 'transform:scale3d(0,0,0);';
+            intro.style.cssText = 'transform:scale3d(1,1,1);';  
             setTimeout(()=>{
-                intro.style.cssText = 'display:none;';
-                if("w_coin_username" in localStorage && "w_coin_avatar" in localStorage){
-                    let user_avac = 'img/' + localStorage.getItem('w_coin_avatar') + '.png';
-                    let user_nomen = localStorage.getItem('w_coin_username');
-                    user_avatar[0].src = user_avac;
-                    user_avatar[1].src = user_avac;
-                    user_name[0].innerHTML = user_nomen;
-                    user_name[1].innerHTML = user_nomen;
-                }else{
-                    signup.style.cssText = 'transform:scale3d(1,1,1);';
-                    setTimeout(()=>{
-                        formBox.style.cssText = 'height:450px;';
-                    },500);
-                }
-            },500);
-        },9000);
-        ava.forEach(element => {
-            element.addEventListener('click', ()=>{
-                main_avatar.src = 'img/' + element.value + '.png';
-                localStorage.setItem('w_coin_avatar', element.value);
+                intro.style.cssText = 'opacity:0;';
+                intro_sound.muted = true;
+                main_sound.muted = false;
+                setTimeout(()=>{
+                    intro.style.cssText = 'display:none;';
+                    if("w_coin_username" in localStorage && "w_coin_avatar" in localStorage){
+                        let user_avac = 'img/' + localStorage.getItem('w_coin_avatar') + '.png';
+                        let user_nomen = localStorage.getItem('w_coin_username');
+                        user_avatar[0].src = user_avac;
+                        user_avatar[1].src = user_avac;
+                        user_name[0].innerHTML = user_nomen;
+                        user_name[1].innerHTML = user_nomen;
+                    }else{
+                        signup.style.cssText = 'transform:scale3d(1,1,1);';
+                        setTimeout(()=>{
+                            formBox.style.cssText = 'height:450px;';
+                        },500);
+                    }
+                },500);
+            },9000);
+            ava.forEach(element => {
+                element.addEventListener('click', ()=>{
+                    main_avatar.src = 'img/' + element.value + '.png';
+                    localStorage.setItem('w_coin_avatar', element.value);
+                });
             });
         });
         how.addEventListener('click', ()=>{
@@ -1052,11 +1278,13 @@
                 closePoint.addEventListener('click', () => {
                     point.style.cssText = 'transform:scale3d(0,0,0);';
                     if(levelUp){
-                        claimBox.style.cssText = 'transform:scale3d(1,1,1);';
                         setTimeout(()=>{
-                            claimBox.style.cssText = 'transform:scale3d(0,0,0);';
-                        },5000);
-                        levelUp = false;
+                            claimBox.style.cssText = 'transform:scale3d(1,1,1);';
+                            setTimeout(()=>{
+                                claimBox.style.cssText = 'transform:scale3d(0,0,0);';
+                            },5000);
+                            levelUp = false;
+                        }, 1000);
                     }
                 });
                 if(size >= w_coin.length - 1){
@@ -1156,8 +1384,10 @@
                 }
             }
             randPoint = parseInt(Math.round(Math.random() * (3)));
-            if(wordPicked.length < 8){
+            point_num.style.width = '150px';
+            if(wordPicked.length < 6){
                 btn1.style.display = 'block';
+                btn1.classList.add('glower');
                 scrShow.style.display = 'block';
                 btn2.style.display = 'none';
                 btn1.removeAttribute('disabled');
@@ -1179,11 +1409,13 @@
                 scrShow.innerHTML = hashedWordPicked1;
                 let tim = 0;            
                 let indi = false;            
+                let loc = '';     
                 btn1.addEventListener('change', () => {
                     let pick = btn1.options[btn1.selectedIndex].value;
                     scrShow.innerHTML = hashedWordPicked1.replace('*', pick);
                     if(pick == hiddenAlphabet1){
                         btn1.setAttribute('disabled','disabled');
+                        btn1.classList.remove('glower');
                         tim += 1;
                         if(tim == 1){
                             indi = true;
@@ -1193,6 +1425,17 @@
                                 localStorage.setItem('w_coin', 0);
                             }
                             if(parseInt(localStorage.getItem('w_coin')) != w_coin.length){
+                                unlock.style.visibility = 'visible';
+                                unlock.style.opacity = '1';
+                                if(localStorage.getItem('w_coin') == 0){loc = 'w.gif'}else if(localStorage.getItem('w_coin') == 1){loc = 'hyphen.png'}else if(localStorage.getItem('w_coin') == 2){loc = 'c.gif'}else if(localStorage.getItem('w_coin') == 3){loc = 'o.gif'}else if(localStorage.getItem('w_coin') == 4){loc = 'i.gif'}else if(localStorage.getItem('w_coin') == 5){loc = 'n.gif'}
+                                unlockedImg.src = 'img/' + loc;
+                                clap_sound.play();
+                                clap_sound.muted = false;
+                                setTimeout(()=>{
+                                    unlock.style.opacity = '0';
+                                    unlock.style.visibility = 'hidden';
+                                    main_sound.muted = false;
+                                }, 3000)
                                 if(parseInt(localStorage.getItem('w_coin')) > 4){
                                     localStorage.setItem('w_coin_badge', parseInt(localStorage.getItem('w_coin_badge')) + randPoint);
                                     if(localStorage.getItem('w_coin_badge') == '20' || localStorage.getItem('w_coin_badge') == '21' || localStorage.getItem('w_coin_badge') == '22' && localStorage.getItem('w_coin_level') == '1'){
@@ -1212,6 +1455,7 @@
                                         point_num.src = 'img/' + randPoint + '.png';
                                     }else{
                                         point_num.src = 'img/' + randPoint + '.gif';
+                                        point_num.style.width = '150px';
                                     }
                                     setTimeout(()=>{
                                         point.style.cssText = 'transform:scale3d(1,1,1);';
@@ -1240,6 +1484,7 @@
                 let hiddenAlphabet22 = '';
                 let hashedWordPicked22 = '';
                 btn1.style.display = 'block';
+                btn1.classList.add('glower');
                 scrShow.style.display = 'block';
                 if("w_coin_word" in localStorage){
                     hiddenAlphabet11 = localStorage.getItem('w_coin_alphabet1');
@@ -1259,6 +1504,7 @@
                 }
                 btn1.removeAttribute('disabled');
                 btn2.setAttribute("disabled", "disabled");
+                btn2.classList.remove('glower');
                 btn2.style.display = 'block';
                 scrShow.innerHTML = hashedWordPicked22;   
                 let indi_1 = false;
@@ -1268,7 +1514,9 @@
                     if(pick == hiddenAlphabet11){
                         indi_1 = true;
                         btn1.setAttribute('disabled','disabled');
+                        btn1.classList.remove('glower');
                         btn2.removeAttribute('disabled');
+                        btn2.classList.add('glower');
                         correctAns = scrShow.innerHTML;
                     }
                     if(indi_1){
@@ -1289,6 +1537,7 @@
                     scrShow.innerHTML = correctAns.replace('*', pick2);
                     if(pick2 == hiddenAlphabet22){
                         btn2.setAttribute('disabled','disabled');
+                        btn2.classList.remove('glower');
                         timm1 += 1;
                         if(timm1 == 1){
                             indi_2 = true;
@@ -1298,6 +1547,17 @@
                                 localStorage.setItem('w_coin', 0);
                             }
                             if(parseInt(localStorage.getItem('w_coin')) != w_coin.length){
+                                unlock.style.visibility = 'visible';
+                                unlock.style.opacity = '1';
+                                if(localStorage.getItem('w_coin') == 0){loc = 'w.gif'}else if(localStorage.getItem('w_coin') == 1){loc = 'hyphen.png'}else if(localStorage.getItem('w_coin') == 2){loc = 'c.gif'}else if(localStorage.getItem('w_coin') == 3){loc = 'o.gif'}else if(localStorage.getItem('w_coin') == 4){loc = 'i.gif'}else if(localStorage.getItem('w_coin') == 5){loc = 'n.gif'}
+                                unlockedImg.src = 'img/' + loc;
+                                clap_sound.play();
+                                clap_sound.muted = false;
+                                setTimeout(()=>{
+                                    unlock.style.opacity = '0';
+                                    unlock.style.visibility = 'hidden';
+                                    main_sound.muted = false;
+                                }, 3000)
                                 if(parseInt(localStorage.getItem('w_coin')) > 4){
                                     localStorage.setItem('w_coin_badge', parseInt(localStorage.getItem('w_coin_badge')) + randPoint);
                                     if(localStorage.getItem('w_coin_badge') == '20' || localStorage.getItem('w_coin_badge') == '21' || localStorage.getItem('w_coin_badge') == '22' && localStorage.getItem('w_coin_level') == '1'){
@@ -1317,6 +1577,7 @@
                                         point_num.src = 'img/' + randPoint + '.png';
                                     }else{
                                         point_num.src = 'img/' + randPoint + '.gif';
+                                        point_num.style.width = '150px';
                                     }
                                     setTimeout(()=>{
                                         point.style.cssText = 'transform:scale3d(1,1,1);';
