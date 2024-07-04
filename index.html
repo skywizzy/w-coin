@@ -1417,10 +1417,10 @@
                     let pick = btn1.options[btn1.selectedIndex].value;
                     scrShow.innerHTML = hashedWordPicked1.replace('*', pick);
                     if(pick == hiddenAlphabet1){
-                        btn1.setAttribute('disabled','disabled');
-                        btn1.classList.remove('glower');
                         tim += 1;
                         if(tim == 1){
+                            btn1.setAttribute('disabled','disabled');
+                            btn1.classList.remove('glower');
                             indi = true;
                             if("w_coin" in localStorage){
                                 localStorage.setItem('w_coin', parseInt(localStorage.getItem('w_coin')) + 1);
@@ -1539,10 +1539,10 @@
                     let pick2 = btn2.options[btn2.selectedIndex].value;
                     scrShow.innerHTML = correctAns.replace('*', pick2);
                     if(pick2 == hiddenAlphabet22){
-                        btn2.setAttribute('disabled','disabled');
-                        btn2.classList.remove('glower');
                         timm1 += 1;
                         if(timm1 == 1){
+                            btn2.setAttribute('disabled','disabled');
+                            btn2.classList.remove('glower');
                             indi_2 = true;
                             if("w_coin" in localStorage){
                                 localStorage.setItem('w_coin', parseInt(localStorage.getItem('w_coin')) + 1);
@@ -1609,5 +1609,7 @@
             }
         }
     </script>
+    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+    <div class="elfsight-app-3c1ac504-1cc1-4cc4-9060-ec7dd4693f1b"></div>
 </body>
 </html>
