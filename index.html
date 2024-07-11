@@ -1413,6 +1413,8 @@
                 let tim = 0;            
                 let indi = false;            
                 let loc = '';     
+                if(localStorage.getItem('w_coin') == 0){loc = 'w.gif'}else if(localStorage.getItem('w_coin') == 1){loc = 'hyphen.png'}else if(localStorage.getItem('w_coin') == 2){loc = 'c.gif'}else if(localStorage.getItem('w_coin') == 3){loc = 'o.gif'}else if(localStorage.getItem('w_coin') == 4){loc = 'i.gif'}else if(localStorage.getItem('w_coin') == 5){loc = 'n.gif'}
+                unlockedImg.src = 'img/' + loc;
                 btn1.addEventListener('change', () => {
                     let pick = btn1.options[btn1.selectedIndex].value;
                     scrShow.innerHTML = hashedWordPicked1.replace('*', pick);
@@ -1429,8 +1431,6 @@
                             }
                             if(parseInt(localStorage.getItem('w_coin')) != w_coin.length){
                                 unlock.style.visibility = 'visible';
-                                if(localStorage.getItem('w_coin') == 0){loc = 'w.gif'}else if(localStorage.getItem('w_coin') == 1){loc = 'hyphen.png'}else if(localStorage.getItem('w_coin') == 2){loc = 'c.gif'}else if(localStorage.getItem('w_coin') == 3){loc = 'o.gif'}else if(localStorage.getItem('w_coin') == 4){loc = 'i.gif'}else if(localStorage.getItem('w_coin') == 5){loc = 'n.gif'}
-                                unlockedImg.src = 'img/' + loc;
                                 unlock.style.opacity = '1';
                                 clap_sound.play();
                                 clap_sound.muted = false;
@@ -1535,6 +1535,8 @@
                 btn2.selectedIndex = 0;
                 let timm1 = 0;
                 let indi_2 = false;
+                if(localStorage.getItem('w_coin') == 0){loc = 'w.gif'}else if(localStorage.getItem('w_coin') == 1){loc = 'hyphen.png'}else if(localStorage.getItem('w_coin') == 2){loc = 'c.gif'}else if(localStorage.getItem('w_coin') == 3){loc = 'o.gif'}else if(localStorage.getItem('w_coin') == 4){loc = 'i.gif'}else if(localStorage.getItem('w_coin') == 5){loc = 'n.gif'}
+                unlockedImg.src = 'img/' + loc;
                 btn2.addEventListener('change', () => {
                     let pick2 = btn2.options[btn2.selectedIndex].value;
                     scrShow.innerHTML = correctAns.replace('*', pick2);
@@ -1551,8 +1553,6 @@
                             }
                             if(parseInt(localStorage.getItem('w_coin')) != w_coin.length){
                                 unlock.style.visibility = 'visible';
-                                if(localStorage.getItem('w_coin') == 0){loc = 'w.gif'}else if(localStorage.getItem('w_coin') == 1){loc = 'hyphen.png'}else if(localStorage.getItem('w_coin') == 2){loc = 'c.gif'}else if(localStorage.getItem('w_coin') == 3){loc = 'o.gif'}else if(localStorage.getItem('w_coin') == 4){loc = 'i.gif'}else if(localStorage.getItem('w_coin') == 5){loc = 'n.gif'}
-                                unlockedImg.src = 'img/' + loc;
                                 unlock.style.opacity = '1';
                                 clap_sound.play();
                                 clap_sound.muted = false;
