@@ -1413,8 +1413,6 @@
                 scrShow.innerHTML = hashedWordPicked1;
                 let tim = 0;            
                 let indi = false;            
-                if(localStorage.getItem('w_coin') == 1){loc = 'hyphen.png'}else if(localStorage.getItem('w_coin') == 2){loc = 'c.gif'}else if(localStorage.getItem('w_coin') == 3){loc = 'o.gif'}else if(localStorage.getItem('w_coin') == 4){loc = 'i.gif'}else if(localStorage.getItem('w_coin') == 5){loc = 'n.gif'}else{loc = 'w.gif'} 
-                unlockedImg.src = 'img/' + loc;
                 btn1.addEventListener('change', () => {
                     let pick = btn1.options[btn1.selectedIndex].value;
                     scrShow.innerHTML = hashedWordPicked1.replace('*', pick);
@@ -1430,15 +1428,19 @@
                                 localStorage.setItem('w_coin', 0);
                             }
                             if(parseInt(localStorage.getItem('w_coin')) != w_coin.length){
-                                unlock.style.visibility = 'visible';
-                                unlock.style.opacity = '1';
-                                clap_sound.play();
-                                clap_sound.muted = false;
+                                if(localStorage.getItem('w_coin') == 0){loc = 'w.gif'}else if(localStorage.getItem('w_coin') == 1){loc = 'hyphen.png'}else if(localStorage.getItem('w_coin') == 2){loc = 'c.gif'}else if(localStorage.getItem('w_coin') == 3){loc = 'o.gif'}else if(localStorage.getItem('w_coin') == 4){loc = 'i.gif'}else if(localStorage.getItem('w_coin') == 5){loc = 'n.gif'}
+                                unlockedImg.src = 'img/' + loc;
+                                setTimeout(()=>{
+                                    unlock.style.visibility = 'visible';
+                                    unlock.style.opacity = '1';
+                                    clap_sound.play();
+                                    clap_sound.muted = false;
+                                }, 1000);
                                 setTimeout(()=>{
                                     unlock.style.opacity = '0';
                                     unlock.style.visibility = 'hidden';
                                     main_sound.muted = false;
-                                }, 3000)
+                                }, 4000);
                                 if(parseInt(localStorage.getItem('w_coin')) > 4){
                                     localStorage.setItem('w_coin_badge', parseInt(localStorage.getItem('w_coin_badge')) + randPoint);
                                     if(localStorage.getItem('w_coin_badge') == '20' || localStorage.getItem('w_coin_badge') == '21' || localStorage.getItem('w_coin_badge') == '22' && localStorage.getItem('w_coin_level') == '1'){
@@ -1535,8 +1537,6 @@
                 btn2.selectedIndex = 0;
                 let timm1 = 0;
                 let indi_2 = false;
-                if(localStorage.getItem('w_coin') == 1){loc = 'hyphen.png'}else if(localStorage.getItem('w_coin') == 2){loc = 'c.gif'}else if(localStorage.getItem('w_coin') == 3){loc = 'o.gif'}else if(localStorage.getItem('w_coin') == 4){loc = 'i.gif'}else if(localStorage.getItem('w_coin') == 5){loc = 'n.gif'}else{loc = 'w.gif'}
-                unlockedImg.src = 'img/' + loc;
                 btn2.addEventListener('change', () => {
                     let pick2 = btn2.options[btn2.selectedIndex].value;
                     scrShow.innerHTML = correctAns.replace('*', pick2);
@@ -1552,15 +1552,19 @@
                                 localStorage.setItem('w_coin', 0);
                             }
                             if(parseInt(localStorage.getItem('w_coin')) != w_coin.length){
-                                unlock.style.visibility = 'visible';
-                                unlock.style.opacity = '1';
-                                clap_sound.play();
-                                clap_sound.muted = false;
+                                if(localStorage.getItem('w_coin') == 0){loc = 'w.gif'}else if(localStorage.getItem('w_coin') == 1){loc = 'hyphen.png'}else if(localStorage.getItem('w_coin') == 2){loc = 'c.gif'}else if(localStorage.getItem('w_coin') == 3){loc = 'o.gif'}else if(localStorage.getItem('w_coin') == 4){loc = 'i.gif'}else if(localStorage.getItem('w_coin') == 5){loc = 'n.gif'}else{loc = 'w.gif'}
+                                unlockedImg.src = 'img/' + loc;
+                                setTimeout(()=>{
+                                    unlock.style.visibility = 'visible';
+                                    unlock.style.opacity = '1';
+                                    clap_sound.play();
+                                    clap_sound.muted = false;
+                                  }, 1000);
                                 setTimeout(()=>{
                                     unlock.style.opacity = '0';
                                     unlock.style.visibility = 'hidden';
                                     main_sound.muted = false;
-                                }, 3000)
+                                }, 4000);
                                 if(parseInt(localStorage.getItem('w_coin')) > 4){
                                     localStorage.setItem('w_coin_badge', parseInt(localStorage.getItem('w_coin_badge')) + randPoint);
                                     if(localStorage.getItem('w_coin_badge') == '20' || localStorage.getItem('w_coin_badge') == '21' || localStorage.getItem('w_coin_badge') == '22' && localStorage.getItem('w_coin_level') == '1'){
