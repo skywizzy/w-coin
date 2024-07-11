@@ -1388,6 +1388,7 @@
             }
             randPoint = parseInt(Math.round(Math.random() * (3)));
             point_num.style.width = '150px';
+            let loc = ''; 
             if(wordPicked.length < 6){
                 btn1.style.display = 'block';
                 btn1.classList.add('glower');
@@ -1412,7 +1413,6 @@
                 scrShow.innerHTML = hashedWordPicked1;
                 let tim = 0;            
                 let indi = false;            
-                let loc = '';     
                 if(localStorage.getItem('w_coin') == 0){loc = 'w.gif'}else if(localStorage.getItem('w_coin') == 1){loc = 'hyphen.png'}else if(localStorage.getItem('w_coin') == 2){loc = 'c.gif'}else if(localStorage.getItem('w_coin') == 3){loc = 'o.gif'}else if(localStorage.getItem('w_coin') == 4){loc = 'i.gif'}else if(localStorage.getItem('w_coin') == 5){loc = 'n.gif'}
                 unlockedImg.src = 'img/' + loc;
                 btn1.addEventListener('change', () => {
