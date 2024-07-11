@@ -1435,12 +1435,11 @@
                             if(parseInt(localStorage.getItem('w_coin')) != w_coin.length){
                                 for(var bn = 0; bn < unlockedImg.length; bn++){unlockedImg[bn].style.display = "none";}
                                 unlockedImg[localStorage.getItem('w_coin')].style.display = "block";
-                                setTimeout(()=>{
                                     unlock.style.visibility = 'visible';
                                     unlock.style.opacity = '1';
                                     clap_sound.play();
                                     clap_sound.muted = false;
-                                }, 500);
+                                }, 200);
                                 setTimeout(()=>{
                                     unlock.style.opacity = '0';
                                     unlock.style.visibility = 'hidden';
@@ -1471,7 +1470,7 @@
                                         point.style.cssText = 'transform:scale3d(1,1,1);';
                                         btn1.style.display = 'none';
                                         scrShow.style.display = 'none';
-                                    },300);
+                                    },500);
                                 }
                                 localStorage.removeItem('w_coin_alphabet');
                                 localStorage.removeItem('w_coin_word');
@@ -1565,7 +1564,7 @@
                                     unlock.style.opacity = '1';
                                     clap_sound.play();
                                     clap_sound.muted = false;
-                                  }, 500);
+                                  }, 200);
                                 setTimeout(()=>{
                                     unlock.style.opacity = '0';
                                     unlock.style.visibility = 'hidden';
@@ -1597,7 +1596,7 @@
                                         btn1.style.display = 'none';
                                         btn2.style.display = 'none';
                                         scrShow.style.display = 'none';
-                                    },300);
+                                    },500);
                                     localStorage.setItem('w_coin', 5);
                                 }
                                 localStorage.removeItem('w_coin_alphabet1');
