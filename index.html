@@ -1388,6 +1388,7 @@
             }
             randPoint = parseInt(Math.round(Math.random() * (3)));
             point_num.style.width = '150px';
+            $imgBravoArr = ['w.gif','hyphen.png','c.gif','o.gif','i.gif','n.gif'];
             if(wordPicked.length < 6){
                 btn1.style.display = 'block';
                 btn1.classList.add('glower');
@@ -1412,7 +1413,7 @@
                 scrShow.innerHTML = hashedWordPicked1;
                 let tim = 0;            
                 let indi = false; 
-                let loc = ''; 
+                // let loc = ''; 
                 btn1.addEventListener('change', () => {
                     let pick = btn1.options[btn1.selectedIndex].value;
                     scrShow.innerHTML = hashedWordPicked1.replace('*', pick);
@@ -1428,14 +1429,14 @@
                                 localStorage.setItem('w_coin', 0);
                             }
                             if(parseInt(localStorage.getItem('w_coin')) != w_coin.length){
-                                if(localStorage.getItem('w_coin') == 0){loc = 'w.gif'}else if(localStorage.getItem('w_coin') == 1){loc = 'hyphen.png'}else if(localStorage.getItem('w_coin') == 2){loc = 'c.gif'}else if(localStorage.getItem('w_coin') == 3){loc = 'o.gif'}else if(localStorage.getItem('w_coin') == 4){loc = 'i.gif'}else if(localStorage.getItem('w_coin') == 5){loc = 'n.gif'}
-                                unlockedImg.src = 'img/' + loc;
+                                // if(localStorage.getItem('w_coin') == 0){loc = 'w.gif'}else if(localStorage.getItem('w_coin') == 1){loc = 'hyphen.png'}else if(localStorage.getItem('w_coin') == 2){loc = 'c.gif'}else if(localStorage.getItem('w_coin') == 3){loc = 'o.gif'}else if(localStorage.getItem('w_coin') == 4){loc = 'i.gif'}else if(localStorage.getItem('w_coin') == 5){loc = 'n.gif'}
+                                unlockedImg.src = 'img/' + $imgBravoArr[localStorage.getItem('w_coin'];
                                 setTimeout(()=>{
                                     unlock.style.visibility = 'visible';
                                     unlock.style.opacity = '1';
                                     clap_sound.play();
                                     clap_sound.muted = false;
-                                }, 1000);
+                                }, 500);
                                 setTimeout(()=>{
                                     unlock.style.opacity = '0';
                                     unlock.style.visibility = 'hidden';
@@ -1488,7 +1489,7 @@
                 let hiddenAlphabet11 = '';
                 let hiddenAlphabet22 = '';
                 let hashedWordPicked22 = '';
-                let loc = ''; 
+                // let loc = ''; 
                 btn1.style.display = 'block';
                 btn1.classList.add('glower');
                 scrShow.style.display = 'block';
@@ -1553,14 +1554,14 @@
                                 localStorage.setItem('w_coin', 0);
                             }
                             if(parseInt(localStorage.getItem('w_coin')) != w_coin.length){
-                                if(localStorage.getItem('w_coin') == 0){loc = 'w.gif'}else if(localStorage.getItem('w_coin') == 1){loc = 'hyphen.png'}else if(localStorage.getItem('w_coin') == 2){loc = 'c.gif'}else if(localStorage.getItem('w_coin') == 3){loc = 'o.gif'}else if(localStorage.getItem('w_coin') == 4){loc = 'i.gif'}else if(localStorage.getItem('w_coin') == 5){loc = 'n.gif'}else{loc = 'w.gif'}
-                                unlockedImg.src = 'img/' + loc;
+                                // if(localStorage.getItem('w_coin') == 0){loc = 'w.gif'}else if(localStorage.getItem('w_coin') == 1){loc = 'hyphen.png'}else if(localStorage.getItem('w_coin') == 2){loc = 'c.gif'}else if(localStorage.getItem('w_coin') == 3){loc = 'o.gif'}else if(localStorage.getItem('w_coin') == 4){loc = 'i.gif'}else if(localStorage.getItem('w_coin') == 5){loc = 'n.gif'}else{loc = 'w.gif'}
+                                unlockedImg.src = 'img/' + $imgBravoArr[localStorage.getItem('w_coin'];
                                 setTimeout(()=>{
                                     unlock.style.visibility = 'visible';
                                     unlock.style.opacity = '1';
                                     clap_sound.play();
                                     clap_sound.muted = false;
-                                  }, 1000);
+                                  }, 500);
                                 setTimeout(()=>{
                                     unlock.style.opacity = '0';
                                     unlock.style.visibility = 'hidden';
