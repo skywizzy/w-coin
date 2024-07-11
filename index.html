@@ -970,7 +970,12 @@
     </div>
     <div class="unlock">
         <div>
-            <img class="unlockedImg" src="img/w.gif">
+            <img class="unlockedImg" style="display:none;" src="img/w.gif">
+            <img class="unlockedImg" style="display:none;" src="img/hyphen.png">
+            <img class="unlockedImg" style="display:none;" src="img/c.gif">
+            <img class="unlockedImg" style="display:none;" src="img/o.gif">
+            <img class="unlockedImg" style="display:none;" src="img/i.gif">
+            <img class="unlockedImg" style="display:none;" src="img/n.gif">
             <h1>Unlocked</h1>
         </div>
     </div>
@@ -1117,6 +1122,7 @@
         const timeScr = document.querySelector('#timeScr');
         const start = document.querySelector('#start');
         const badge = document.querySelectorAll('.badge');
+        const unlockedImg = document.querySelectorAll(".unlockedImg");
         const how = document.querySelector('#how');
         const no = document.querySelector('#no');
         const close = document.querySelector('#close');
@@ -1138,7 +1144,6 @@
         const right = document.querySelector(".right");
         const profile = document.querySelector(".profile");
         const unlock = document.querySelector(".unlock");
-        const unlockedImg = document.querySelector(".unlockedImg");
         const intro_sound = document.querySelector(".intro_sound");
         const main_sound = document.querySelector(".main_sound");
         const clap_sound = document.querySelector(".clap_sound");
@@ -1388,7 +1393,6 @@
             }
             randPoint = parseInt(Math.round(Math.random() * (3)));
             point_num.style.width = '150px';
-            $imgBravoArr = ['w.gif','hyphen.png','c.gif','o.gif','i.gif','n.gif'];
             if(wordPicked.length < 6){
                 btn1.style.display = 'block';
                 btn1.classList.add('glower');
@@ -1429,8 +1433,8 @@
                                 localStorage.setItem('w_coin', 0);
                             }
                             if(parseInt(localStorage.getItem('w_coin')) != w_coin.length){
-                                // if(localStorage.getItem('w_coin') == 0){loc = 'w.gif'}else if(localStorage.getItem('w_coin') == 1){loc = 'hyphen.png'}else if(localStorage.getItem('w_coin') == 2){loc = 'c.gif'}else if(localStorage.getItem('w_coin') == 3){loc = 'o.gif'}else if(localStorage.getItem('w_coin') == 4){loc = 'i.gif'}else if(localStorage.getItem('w_coin') == 5){loc = 'n.gif'}
-                                unlockedImg.src = 'img/' + $imgBravoArr[localStorage.getItem('w_coin')];
+                                for(var bn = 0; bn < unlockedImg.length; bn++){unlockedImg[bn].style.display = "none";}
+                                unlockedImg[localStorage.getItem('w_coin')].style.display = "block";
                                 setTimeout(()=>{
                                     unlock.style.visibility = 'visible';
                                     unlock.style.opacity = '1';
@@ -1554,8 +1558,8 @@
                                 localStorage.setItem('w_coin', 0);
                             }
                             if(parseInt(localStorage.getItem('w_coin')) != w_coin.length){
-                                // if(localStorage.getItem('w_coin') == 0){loc = 'w.gif'}else if(localStorage.getItem('w_coin') == 1){loc = 'hyphen.png'}else if(localStorage.getItem('w_coin') == 2){loc = 'c.gif'}else if(localStorage.getItem('w_coin') == 3){loc = 'o.gif'}else if(localStorage.getItem('w_coin') == 4){loc = 'i.gif'}else if(localStorage.getItem('w_coin') == 5){loc = 'n.gif'}else{loc = 'w.gif'}
-                                unlockedImg.src = 'img/' + $imgBravoArr[localStorage.getItem('w_coin')];
+                                for(var bn = 0; bn < unlockedImg.length; bn++){unlockedImg[bn].style.display = "none";}
+                                unlockedImg[localStorage.getItem('w_coin')].style.display = "block";
                                 setTimeout(()=>{
                                     unlock.style.visibility = 'visible';
                                     unlock.style.opacity = '1';
